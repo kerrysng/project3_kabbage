@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <% if session[:first_name] != nil %>
+      <p>Logged in: <%= session[:first_name] %></p>
+      <%= form_tag '/', method: 'delete' do %>
+      <button>logout</button>
+      <% end %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

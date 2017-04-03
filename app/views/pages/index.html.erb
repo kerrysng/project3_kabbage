@@ -1,0 +1,28 @@
+<%= form_tag '/', method: 'post' do %>
+  <label for="">email</label>
+  <input type="text" name="email">
+  <label for="">password</label>
+  <input type="password" name="password">
+  <button>login</button>
+<% end %>
+
+
+<%= form_tag '/new', method: 'get' do %>
+  <button>Sign Up</button>
+<% end %>
+
+<div>
+  <div>picture</div>
+  <%= form_tag '/', method: 'post' do %>
+    <input type="text" name="search">
+    <button>Search</button>
+  <% end %>
+</div>
+
+<div>Trending</div>
+<div>card</div>
+<div>card</div>
+<div>card</div>
+<div>card</div>
+<div>card</div>
+<div>card</div>
