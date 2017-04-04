@@ -1,4 +1,4 @@
-var places = [{place:'Melbourne',lat: -37.663712,long: 144.844788},{place:'Perth',lat:-31.953512,long:115.857048},{place:'Singapore',lat:1.290270 , long:103.851959}];
+var places = [{place:'Melbourne',lat: -37.663712,long: 144.844788},{place:'Perth',lat:-31.953512,long:115.857048},{place:'Singapore',lat:1.290270 , long:103.851959},{place: 'San Francisco',lat: 37.773972, long: -122.431297}];
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 2,
@@ -9,7 +9,8 @@ function initMap() {
   var flightPlanCoordinates = [
           {lat: -37.663712, lng: 144.844788},
           {lat: -31.953512, lng: 115.857048},
-          {lat: 1.290270, lng: 103.851959}
+          {lat: 1.290270, lng: 103.851959},
+          {lat: 37.773972, lng: -122.431297}
         ];
 
   var flightPath = new google.maps.Polyline({
@@ -35,7 +36,7 @@ function initMap() {
 }
 
 
-//
+
 //
 // function initMap() {
 //   var map = new google.maps.Map(document.getElementById('map'), {
@@ -80,12 +81,10 @@ function initMap() {
 //   });
 //   directionsDisplay.setMap(map);
 //
+//   calculateAndDisplayRoute(directionsService, directionsDisplay);
+//
 //   function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-//     var waypts = [
-//       {lat: -37.663712, lng: 144.844788},
-//       {lat: -31.953512, lng: 115.857048},
-//       {lat: 1.290270, lng: 103.851959}
-//     ];
+//     var waypts = [{lat: -37.663712,long: 144.844788},{lat:-31.953512,long:115.857048}];
 //
 //     directionsService.route({
 //       origin: document.getElementById('start').value,
