@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard'
 
 
+
   namespace :api do
     resources :trips , :cards
   end
