@@ -23,17 +23,22 @@
 
 <%= render 'card_template' %>
 
-<!-- <script>
+<script>
 $(document).ready(function() {
 
   $.ajax({
     url: 'http://localhost:3000/api/cards/',
     method: 'GET'
   }).done(function(data){
-    var cards = [new Card(data)];  //????
 
 
-debugger;
+    var cards = [];
+
+    for(var i=0; i<data.length; i++){
+      cards.push(new Card(data[i]));
+    }
+
+    //????
 
     cards.forEach(function(card){
       var view = new CardItemView({model: card});
@@ -45,4 +50,4 @@ debugger;
   });
 
 });
-</script> -->
+</script>
