@@ -14,4 +14,8 @@ class PagesController < ApplicationController
     end
   end
 
+  def new_card_form
+    render :new_card_form
+  end
+
 end

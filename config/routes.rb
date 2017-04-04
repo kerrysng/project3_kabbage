@@ -11,5 +11,12 @@ Rails.application.routes.draw do
 
   post '/new', to: 'pages#create_user'
 
+  get '/new_card_form', to: 'pages#new_card_form'
+
+  # post '/create_card', to: '/apicards#create_card'
+
+  namespace :api do
+    resources :cards
+  end
 
 end
