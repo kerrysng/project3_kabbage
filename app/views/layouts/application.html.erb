@@ -10,7 +10,7 @@
 
   <body>
     <% if session[:first_name] != nil %>
-      <p>Logged in: <%= session[:first_name] %></p>
+      <p>Logged in: <%= session[:first_name] %><%=session[:id]%></p>
       <%= form_tag '/', method: 'delete' do %>
       <button>logout</button>
       <% end %>
