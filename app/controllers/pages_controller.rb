@@ -6,7 +6,6 @@ class PagesController < ApplicationController
     selected = params[:select]
     if search != nil && search != ''
       @results = Card.where("#{selected}": search)
-      binding.pry
       render :index
     else
       @results = []
