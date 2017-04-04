@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get 'sessions/new'
-  root 'pages#index'
+  root 'pages#map'
 
   get '/new', to: 'user#new'
   post '/new', to: 'user#create'
@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   get '/new_card_form', to: 'pages#new_card_form'
 
   get '/dashboard', to: 'pages#dashboard'
-
 
   namespace :api do
     resources :trips , :cards

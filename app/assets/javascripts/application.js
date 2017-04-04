@@ -18,3 +18,4 @@
 //= require 'Card'
 //= require 'CardItemView'
 //= require 'app'
+//= require 'geolocation'
