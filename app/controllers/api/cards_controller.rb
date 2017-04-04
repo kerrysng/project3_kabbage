@@ -8,11 +8,15 @@ class Api::CardsController < ApplicationController
 
   def create
     card = Card.new
-    # geolocation goes here?
-    card.long = params[:long]
-    card.lat = params[:lat]
+    card.image_url = params[:image_url]
+    card.lat = params[:lat].to_f
+    card.long = params[:long].to_f
     card.body = params[:body]
-    card_image = params[:image_url]
+    card.user_id = session[:id]
+    card.trip_id = 3
+    card.country = params[:country]
+    card.city = params[:city]
+
     if card.save
       redirect_to '/'
     else

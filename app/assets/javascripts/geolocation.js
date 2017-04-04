@@ -84,7 +84,9 @@ function initMap() {
     center: {lat: -34.397, lng: 150.644},
     zoom: 15
   });
-var infoWindow = new google.maps.InfoWindow({map: map});
+  var geocoder = new google.maps.Geocoder;
+  var infowindow = new google.maps.InfoWindow;
+  var infoWindow = new google.maps.InfoWindow({map: map});
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -93,8 +95,33 @@ var infoWindow = new google.maps.InfoWindow({map: map});
         lng: position.coords.longitude
       };
 
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('You Are Here.');
+      $('#latitude').attr('value',pos.lat);
+      $('#longitude').attr('value',pos.lng);
+
+      geocoder.geocode({'location': pos}, function(results, status) {
+        if (status === 'OK') {
+          if (results[1]) {
+            map.setZoom(11);
+            var marker = new google.maps.Marker({
+              position: pos,
+              map: map
+            });
+            var cityCountry = results[5].formatted_address;
+            var cityArray = cityCountry.split(", ");
+            $('#country').attr('value',cityArray[2]);
+            $('#city').attr('value',cityArray[0]);
+            infowindow.setContent(results[1].formatted_address);
+            infowindow.open(map, marker);
+          } else {
+            window.alert('No results found');
+          }
+        } else {
+          window.alert('Geocoder failed due to: ' + status);
+        }
+      });
+
+      // infoWindow.setPosition(pos);
+      // infoWindow.setContent('You Are Here.');
       map.setCenter(pos);
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());

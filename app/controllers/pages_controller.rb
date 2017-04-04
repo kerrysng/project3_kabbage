@@ -30,7 +30,8 @@ class PagesController < ApplicationController
     render :new_card_form
   end
 
-  def dashboard
+  def dashboard 
+    @cards = Card.where(id: session[:user_id])
     render :dashboard
   end
 
