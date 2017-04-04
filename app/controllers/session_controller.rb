@@ -4,7 +4,7 @@ class SessionController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:first_name] = user.first_name
-      redirect_to '/'
+      redirect_to '/dashboard'
     else
       render :index
     end
