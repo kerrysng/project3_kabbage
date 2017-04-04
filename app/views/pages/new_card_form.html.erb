@@ -1,0 +1,15 @@
+<h1>Create Card</h1>
+<%= form_tag '/api/cards', method: 'post' do %>
+  <label for="">Location</label>
+  <label for="">Long:</label>
+  <input type="float" name="long">
+  <label for="">Lat:</label>
+  <input type="float" name="lat">
+  <label for="">Image URL</label>
+  <input type="text" name="image_url">
+  <label for="">Description</label>
+  <input type="text" name="body">
+  <button>Submit</button>
+<% end %>
+
+<img src="" alt="">GEOLOCATION MAP</img>
