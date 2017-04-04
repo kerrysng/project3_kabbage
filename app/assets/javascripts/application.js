@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require 'underscore'
+//= require 'backbone'
+//= require 'handlebars'
+//= require 'Card'
+//= require 'CardItemView'
+//= require 'app'
