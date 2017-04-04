@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var places = [{place:'Melbourne',lat: -37.663712,long: 144.844788},{place:'Perth',lat:-31.953512,long:115.857048},{place:'Singapore',lat:1.290270 , long:103.851959},{place: 'San Francisco',lat: 37.773972, long: -122.431297}];
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -38,9 +37,9 @@ function initMap() {
 
 
 
-=======
+
 // var places = [{place:'Melbourne',lat: -37.663712,long: 144.844788},{place:'Perth',lat:-31.953512,long:115.857048},{place:'Singapore',lat:1.290270 , long:103.851959},{place: 'San Francisco',lat: 37.773972, long: -122.431297}];
->>>>>>> ce29a5062f79a26bb3f440039936594ea9d94f3b
+
 // function initMap() {
 //   var map = new google.maps.Map(document.getElementById('map'), {
 //     zoom: 2,

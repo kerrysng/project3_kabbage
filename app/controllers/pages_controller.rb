@@ -1,6 +1,17 @@
 class PagesController < ApplicationController
 
 
+  def index
+    search = params[:search]
+    if search != nil && search != ''
+      @results = Card.where(country: search)
+      render :index
+    else
+      @results = []
+    end
+
+  end
+
   def create_user
     new_user = User.new
     new_user.email = params[:email]
