@@ -1,0 +1,15 @@
+
+<form action="/api/trips" method="post">
+<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <label for="">Start-Date</label>
+  <input type="text" name="start_date" >
+
+  <label for="">End-Date</label>
+  <input type="text" name="end_date">
+
+  <label for="">Trip-Name</label>
+  <input type="text" name="name">
+
+  <button>Submit</button>
+
+</form>
