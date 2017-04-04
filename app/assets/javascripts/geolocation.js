@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var places = [{place:'Melbourne',lat: -37.663712,long: 144.844788},{place:'Perth',lat:-31.953512,long:115.857048},{place:'Singapore',lat:1.290270 , long:103.851959},{place: 'San Francisco',lat: 37.773972, long: -122.431297}];
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -37,38 +38,79 @@ function initMap() {
 
 
 
+=======
+// var places = [{place:'Melbourne',lat: -37.663712,long: 144.844788},{place:'Perth',lat:-31.953512,long:115.857048},{place:'Singapore',lat:1.290270 , long:103.851959},{place: 'San Francisco',lat: 37.773972, long: -122.431297}];
+>>>>>>> ce29a5062f79a26bb3f440039936594ea9d94f3b
 // function initMap() {
 //   var map = new google.maps.Map(document.getElementById('map'), {
-//     center: {lat: -34.397, lng: 150.644},
-//     zoom: 15
+//     zoom: 2,
+//     center: new google.maps.LatLng(2.8,-187.3),
+//     mapTypeId: 'terrain'
 //   });
 //
-// var infoWindow = new google.maps.InfoWindow({map: map});
+//   var flightPlanCoordinates = [
+//           {lat: -37.663712, lng: 144.844788},
+//           {lat: -31.953512, lng: 115.857048},
+//           {lat: 1.290270, lng: 103.851959},
+//           {lat: 37.773972, lng: -122.431297}
+//         ];
 //
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(function(position) {
-//       var pos = {
-//         lat: position.coords.latitude,
-//         lng: position.coords.longitude
-//       };
+//   var flightPath = new google.maps.Polyline({
+//           path: flightPlanCoordinates,
+//           geodesic: true,
+//           strokeColor: '#FF0000',
+//           strokeOpacity: 1.0,
+//           strokeWeight: 2
+//         });
 //
-//       infoWindow.setPosition(pos);
-//       infoWindow.setContent('You Are Here.');
-//       map.setCenter(pos);
-//     }, function() {
-//       handleLocationError(true, infoWindow, map.getCenter());
+//         flightPath.setMap(map);
+//
+//   for (var i = 0; i < places.length; i++) {
+//     var latLng = new google.maps.LatLng(places[i].lat,places[i].long);
+//     var marker = new google.maps.Marker({
+//       position: latLng,
+//       map: map,
+//       label: i.toString(),
+//       animation: google.maps.Animation.DROP,
+//       title: places[i].place // placeholder for each marker
 //     });
-//   } else {
-//     // Browser doesn't support Geolocation
-//     handleLocationError(false, infoWindow, map.getCenter());
-//   }
-//   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-//     infoWindow.setPosition(pos);
-//     infoWindow.setContent(browserHasGeolocation ?
-//       'Error: The Geolocation service failed.' :
-//       'Error: Your browser doesn\'t support geolocation.');
 //   }
 // }
+
+
+
+
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 15
+  });
+var infoWindow = new google.maps.InfoWindow({map: map});
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('You Are Here.');
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+      'Error: The Geolocation service failed.' :
+      'Error: Your browser doesn\'t support geolocation.');
+  }
+}
 
 //
 // function initMap() {

@@ -11,32 +11,38 @@
 <% end %>
 
 <div>
-  <img src="/pages/map" alt="">
+  <!-- <img src="/pages/map" alt=""> -->
   <%= form_tag '/', method: 'post' do %>
     <input type="text" name="search">
     <button>Search</button>
   <% end %>
 </div>
 
-<div>Trending</div>
-<div>card</div>
-<div>card</div>
-<div>card</div>
-<div>card</div>
-<div>card</div>
-<div>card</div>
+<div class="cards_container">
+</div>
 
 <%= render 'card_template' %>
 
-<script>
+<!-- <script>
 $(document).ready(function() {
-  var cards = [new Card(<%= @cards %>)];  //????
+
+  $.ajax({
+    url: 'http://localhost:3000/api/cards/',
+    method: 'GET'
+  }).done(function(data){
+    var cards = [new Card(data)];  //????
 
 
-  cards.forEach(function(card){
-    var view = new CardItemView({model: card});
-    $('#app').append(view.render().el);
+debugger;
+
+    cards.forEach(function(card){
+      var view = new CardItemView({model: card});
+      $('.cards_container').append(view.render().el);
+    });
+
+
+
   });
 
 });
-</script>
+</script> -->
