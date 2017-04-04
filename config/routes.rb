@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get 'sessions/new'
-  root 'pages#map'
+  root 'pages#index'
 
   get 'users/new', to: 'users#new'
   post '/new', to: 'users#create'
