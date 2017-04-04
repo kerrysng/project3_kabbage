@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+<<<<<<< HEAD
 
   def create_user
     new_user = User.new
@@ -18,4 +19,8 @@ class PagesController < ApplicationController
     render :new_card_form
   end
 
+=======
+  def index
+  end
+>>>>>>> 1173d87f63a3fb5985cd438f83ddca8da5145f43
 end

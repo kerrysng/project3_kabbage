@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'pages#index'
@@ -18,5 +19,19 @@ Rails.application.routes.draw do
   namespace :api do
     resources :cards
   end
+=======
+  get 'sessions/new'
+
+get '/new', to: 'user#new'
+post '/new', to: 'user#create'
+
+get '/login', to: 'session#new'
+post '/session', to: 'session#create'
+delete '/session', to: 'session#destroy'
+
+namespace :api do
+  resources :trips
+end
+>>>>>>> 1173d87f63a3fb5985cd438f83ddca8da5145f43
 
 end
