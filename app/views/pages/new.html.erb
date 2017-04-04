@@ -1,0 +1,12 @@
+<h1>Sign Up</h1>
+<%= form_tag '/new', method: 'post' do %>
+  <label for="">email</label>
+  <input type="text" name="email">
+  <label for="">password</label>
+  <input type="password" name="password">
+  <label for="">First Name</label>
+  <input type="text" name="first_name">
+  <label for="">Last Name</label>
+  <input type="text" name="last_name">
+  <button>Create</button>
+<% end %>
