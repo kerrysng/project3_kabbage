@@ -12,10 +12,24 @@
 
 <div>
   <!-- <img src="/pages/map" alt=""> -->
-  <%= form_tag '/', method: 'post' do %>
+  <%= form_tag '/', method: 'get' do %>
     <input type="text" name="search">
-    <button>Search</button>
+    <select name="select">
+      <option value="country">country</option>
+      <option value="city">city</option>
+    </select>
+    <button class="search-btn">Search</button>
   <% end %>
+</div>
+
+<div>
+  <% @results.each do |card| %>
+    <img src="<%=card.image_url%>" alt="">
+    <p><%=card.body%></p>
+    <h3><%=card.country%></h3>
+    <h3><%=card.city%></h3>
+    <hr>
+  <%end%>
 </div>
 
 <div class="cards_container">
