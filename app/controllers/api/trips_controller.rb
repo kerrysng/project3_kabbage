@@ -33,4 +33,9 @@ class Api::TripsController < ApplicationController
   def edit
     card = Trip.find(params[:name])
   end
+
+  def show
+    trips = Card.where(trip_id: params[:id])
+    render json: trips
+  end
 end

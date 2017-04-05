@@ -33,8 +33,9 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @trips = Trip.all
+    @cards = Card.where(id: session[:user_id])
     @user_id= session[:user_id]
-    # @cards = Card.where(id: session[:user_id])
     render :dashboard
   end
 
@@ -43,9 +44,13 @@ class PagesController < ApplicationController
   end
 
   def trip_view
+    @trip_id = params[:id]
     @cards = Card.all
     render :trip_view
   end
 
+  def new_card_form
+    render :new_card_form
+  end
 
 end
