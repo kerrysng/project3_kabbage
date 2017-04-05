@@ -20,7 +20,7 @@ class MoodsController < ApplicationController
   def create
     @mood = current_user.moods.build(mood_params)
     if @mood.save
-      redirect_to @mood,
+      redirect_to @mood
     else
       render :new
     end
