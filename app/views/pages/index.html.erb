@@ -13,11 +13,7 @@
 <div>
   <!-- <img src="/pages/map" alt=""> -->
   <%= form_tag '/', method: 'get' do %>
-    <input type="text" name="search">
-    <select name="select">
-      <option value="country">country</option>
-      <option value="city">city</option>
-    </select>
+    <input type="text" class="search">
     <button class="search-btn">Search</button>
   <% end %>
 </div>
@@ -32,10 +28,18 @@
 $(document).ready(function() {
 
 
+  var $searchTerm = '';
+  var $limit;
+
+
+  var makeAJAXCall = function (){
+  $offset = $limit - 10;
+
   $.ajax({
     url: 'http://localhost:3000/api/cards/',
     method: 'GET'
   }).done(function(data){
+
 
   cards = [];
     // var cards = <%= @cards.to_json %>;
@@ -46,11 +50,87 @@ $(document).ready(function() {
 
     //????
 
+    selection = [];
+    cards = [];
+
+
+
+    if ($searchTerm != ''){
+      i=0;
+      while(result[i] != undefined){
+        if(result[i].city === $searchTerm || result[i].country === $searchTerm){
+          selection.push(result[i]);
+        }
+        i++;
+      }
+
+    }
+    else {
+      selection = result;
+    }
+
+    for(i=$offset; i< $limit; i++){
+      if(result[i] != undefined){
+        cards.push(new Card(selection[i]));
+      }
+    }
+
+
     cards.forEach(function(card){
-      var view = new CardItemView({model: card});
-      $('.cards_container').append(view.render().el);
+  //    debugger;
+      if (card.attributes.id != undefined){
+        var view = new CardItemView({model: card});
+        $('.cards_container').append(view.render().el);
+      }
     });
 
+
+     $limit += 10;
+
+   });
+
+  }
+
+  // load first ten elements on page load
+  $limit =10;
+  makeAJAXCall();
+
+  //
+  // $.ajax({
+  //   url: 'http://localhost:3000/api/cards/',
+  //   method: 'GET'
+  // }).done(function(data){
+  //
+  //
+
+  //
+  //   for(var i=0; i<data.length; i++){
+  //     cards.push(new Card(data[i]));
+  //   }
+  //
+  //   //????
+  //
+  //   cards.forEach(function(card){
+  //     var view = new CardItemView({model: card});
+  //     $('.cards_container').append(view.render().el);
+  //   });
+  //
+  //
+  //
+  // });
+
+
+
+  $(".search-btn").click(function(event){
+
+    event.preventDefault();
+
+    // make this case insensitive
+    $searchTerm = $('.search').val();
+    $limit = 10;
+    $(".cards_container").empty();
+
+    makeAJAXCall();
 
 
   });
