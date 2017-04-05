@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
 
-
   def index
     search = params[:search]
     selected = params[:select]
@@ -30,9 +29,18 @@ class PagesController < ApplicationController
     render :new_card_form
   end
 
-  def dashboard 
+  def dashboard
     @cards = Card.where(id: session[:user_id])
     render :dashboard
+  end
+
+  def mood_board
+    render :mood_board
+  end
+
+  def trip_view
+    @cards = Card.all
+    render :trip_view
   end
 
 

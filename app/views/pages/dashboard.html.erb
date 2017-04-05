@@ -2,14 +2,14 @@
 <h1>dashboard</h1>
 <hr>
 <h3>trips</h3>
-<div>eg Germany '14</div>
+<div><a href="/trip1">Germany '14</a></div>
 <div>eg Mexico '15</div>
 <div>eg Italy '16</div>
 
 <hr>
 <h3>Cards All</h3>
 <% @cards.each do |card| %>
-<p><%=card.body %></p>  
+<p><%=card.body %></p>
 <% end %>
 
 <%= form_tag '/new_card_form', method: 'get' do %>
@@ -17,14 +17,4 @@
 <% end %>
 
 <hr>
-<h3>other user cards</h3>
-<div>cards</div>
-<div>cards</div>
-<div>cards</div>
-<div>cards</div>
-<div>cards</div>
-
-<div id="map"></div>
-<script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDos2y09tthYvRB3zKJ53njpqZkSFtX8u4&callback=initMap">
-</script>
+<a href="/mood_board">Mood Board</a>

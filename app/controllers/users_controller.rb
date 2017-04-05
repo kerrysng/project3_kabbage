@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-  def new
-    @user = User.new
+  def index
+    render :new_user_form
   end
 
   def create
