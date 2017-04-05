@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  get '/', to: 'pages#index'
 
   get 'sessions/new'
-  root 'pages#index'
+  # root 'pages#index'
 
   get '/user', to: 'users#index'
   post '/user/new', to: 'users#create'
