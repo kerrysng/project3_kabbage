@@ -7,10 +7,44 @@
 <div>eg Italy '16</div>
 
 <hr>
-<h3>Cards All</h3>
-<% @cards.each do |card| %>
-<p><%=card.body %></p>
-<% end %>
+<h3>My Cards</h3>
+
+<div class="cards_container"></div>
+
+<%= render 'card_template' %>
+
+<script>
+$(document).ready(function() {
+
+  var user_id =  <%= @user_id.to_json %>;
+
+  console.log(user_id);
+
+  $.ajax({
+    url: 'http://localhost:3000/api/cards/',
+    // data: { user_id: user_id },
+    method: 'GET'
+  }).done(function(data){
+    console.log(data);
+    var cards = [];
+
+    for(var i=0; i<data.length; i++){
+      cards.push(new Card(data[i]));
+    }
+
+    //????
+
+    cards.forEach(function(card){
+      var view = new CardItemView({model: card});
+      $('.cards_container').append(view.render().el);
+    });
+
+
+
+  });
+
+});
+</script>
 
 <%= form_tag '/new_card_form', method: 'get' do %>
   <button>create new card</button>

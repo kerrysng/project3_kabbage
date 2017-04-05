@@ -1,3 +1,14 @@
+<%= form_tag '/', method: 'post' do %>
+  <label for="">email</label>
+  <input type="text" name="email">
+  <label for="">password</label>
+  <input type="password" name="password">
+  <button>login</button>
+<% end %>
+
+<%= form_tag '/user', method: 'get' do %>
+  <button>Sign Up</button>
+<% end %>
 
 <div>
   <!-- <img src="/pages/map" alt=""> -->
@@ -11,15 +22,19 @@
   <% end %>
 </div>
 
+
 <div>
-  <% @results.each do |card| %>
-    <img src="<%=card.image_url%>" alt="">
-    <p><%=card.body%></p>
-    <h3><%=card.country%></h3>
-    <h3><%=card.city%></h3>
-    <hr>
-  <%end%>
+  <!-- <img src="/pages/map" alt=""> -->
+  <%= form_tag '/', method: 'get' do %>
+    <input type="text" name="search">
+    <select name="select">
+      <option value="country">country</option>
+      <option value="city">city</option>
+    </select>
+    <button class="search-btn">Search</button>
+  <% end %>
 </div>
+
 
 <div class="cards_container">
 </div>
@@ -29,28 +44,102 @@
 <script>
 $(document).ready(function() {
 
+  var $searchTerm;
+  var $limit;
+
+
+  var makeAJAXCall = function (location=''){
+  $offset = $limit - 10;
   $.ajax({
-    url: 'http://localhost:3000/api/cards/',
-    method: 'GET'
-  }).done(function(data){
+    method: 'GET',
+    url: 'http://localhost:3000/api/cards/'
+   }).done(function(result){
 
+    selected = [];
+    cards = [];
 
-    var cards = [];
+    if(location!= ''){
 
-    for(var i=0; i<data.length; i++){
-      cards.push(new Card(data[i]));
+    }
+    else {
+      selected = result;
     }
 
-    //????
+
+
+
+
+
+    for(i=$offset; i< $limit; i++){
+      cards.push(new Card(selected[i]));
+    }
 
     cards.forEach(function(card){
       var view = new CardItemView({model: card});
       $('.cards_container').append(view.render().el);
     });
 
+     $limit += 10;
 
+   });
+
+  }
+
+  // load first ten elements on page load
+  makeAJAXCall();
+
+  //
+  // $.ajax({
+  //   url: 'http://localhost:3000/api/cards/',
+  //   method: 'GET'
+  // }).done(function(data){
+  //
+  //
+  //   // var cards = <%= @cards.to_json %>;
+  //
+  //   for(var i=0; i<data.length; i++){
+  //     cards.push(new Card(data[i]));
+  //   }
+  //
+  //   //????
+  //
+  //   cards.forEach(function(card){
+  //     var view = new CardItemView({model: card});
+  //     $('.cards_container').append(view.render().el);
+  //   });
+  //
+  //
+  //
+  // });
+
+
+
+  $(".search-btn").click(function(event){
+
+    event.preventDefault();
+
+    // make this case insensitive
+    $searchTerm = $('.search').val();
+    $limit = 10;
+    $(".cards_container").empty();
+
+    makeAJAXCall($searchTerm);
 
   });
+
+
+  $(window).scroll(function() {
+    if($(window).scrollTop() + $(window).height() == $(document).height()) {
+
+      makeAJAXCall();
+
+    }
+
+  });
+
+// reload on click, extract information from search bar
+// outside of document ready? should only be used after the document is
+// ready anyway
 
 });
 </script>
