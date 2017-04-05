@@ -27,16 +27,28 @@
 <script>
 $(document).ready(function() {
 
+
   var $searchTerm = '';
   var $limit;
 
 
   var makeAJAXCall = function (){
   $offset = $limit - 10;
+
   $.ajax({
-    method: 'GET',
-    url: 'http://localhost:3000/api/cards/'
-   }).done(function(result){
+    url: 'http://localhost:3000/api/cards/',
+    method: 'GET'
+  }).done(function(data){
+
+
+  cards = [];
+    // var cards = <%= @cards.to_json %>;
+
+    for(var i=0; i<data.length; i++){
+      cards.push(new Card(data[i]));
+    }
+
+    //????
 
     selection = [];
     cards = [];
@@ -63,6 +75,7 @@ $(document).ready(function() {
       }
     }
 
+
     cards.forEach(function(card){
   //    debugger;
       if (card.attributes.id != undefined){
@@ -70,6 +83,7 @@ $(document).ready(function() {
         $('.cards_container').append(view.render().el);
       }
     });
+
 
      $limit += 10;
 
@@ -88,7 +102,7 @@ $(document).ready(function() {
   // }).done(function(data){
   //
   //
-  //   // var cards = <%= @cards.to_json %>;
+
   //
   //   for(var i=0; i<data.length; i++){
   //     cards.push(new Card(data[i]));
@@ -118,17 +132,11 @@ $(document).ready(function() {
 
     makeAJAXCall();
 
-  });
-
-
-  $(window).scroll(function() {
-    if($(window).scrollTop() + $(window).height() == $(document).height()) {
-
-      makeAJAXCall();
-
-    }
 
   });
+
+
+
 
 // reload on click, extract information from search bar
 // outside of document ready? should only be used after the document is
