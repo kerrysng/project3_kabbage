@@ -13,11 +13,12 @@ class Api::TripsController < ApplicationController
     trip.start_date = params[:start_date]
     trip.end_date = params[:end_date]
     trip.name = params[:name]
+    trip.user_id = session[:id]
 
     if trip.save
-      render json: trip
+      redirect_to '/dashboard'
     else
-      render json: trip.errors
+      redirect_to '/new_trip'
     end
   end
 

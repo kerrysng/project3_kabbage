@@ -8,37 +8,34 @@ var DashboardCardItemView = Backbone.View.extend({
   },
 
   events: {
-    // 'click .edit': 'edit',
-  //  'keyup input': 'save'
-   'mouseover': 'expand'
+    
+   'click': 'toggleContent'
   },
 
-  // initialize: function(){
-  //   this.listenTo(this.model, 'change', this.render);
-  // },
+  showmeState: false,
 
-
-  expand: function(){
-    this.$el.css('backgroundColor', 'black');
-    // this.$el.css('height', 50'%');
-    // this.$el.css('width');
+  toggleContent: function(){
+    if (this.showmeState === false) {
+      this.showText();
+    } else {
+      this.hideText();
+    };
   },
 
- //  save: function(event){
- //    if (event.which === 13){
- //      this.model.set('body', event.target.value);
- // //console.log(event.target);
- //    }
- //  },
- //
- //  hardify: function(){
- //    this.$el.find('input').show();
- //    this.$el.find('h2').hide();
- //  },
+  hideText: function() {
+   this.$el.find('.dashboard').hide();
+   this.showmeState = false;
+  },
+
+  showText: function() {
+   this.$el.find('.dashboard').show();
+   this.showmeState = true;
+  },
 
   render: function(){
     var html = this.template()(this.model.toJSON());
     this.$el.html(html);
+    this.hideText();
     return this;
   }
 });
