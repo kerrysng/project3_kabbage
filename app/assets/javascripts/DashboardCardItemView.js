@@ -19,8 +19,8 @@ var DashboardCardItemView = Backbone.View.extend({
 
 
   expand: function(){
-    this.$el.css('display', 'none');
-    this.$el.css('backgroundColor', 'black');
+    this.$el.css('visibility', '');
+    // this.$el.css('backgroundColor', 'black');
     // this.$el.css('height', 50'%');
     // this.$el.css('width');
   },
