@@ -1,14 +1,17 @@
 class PagesController < ApplicationController
 
   def index
-    search = params[:search]
-    selected = params[:select]
-    if search != nil && search != ''
-      @results = Card.where("#{selected}": search)
+    #make search case independent
+    #search = params[:search]
+    #selected = params[:select]
+    #if search != nil && search != ''
+      #@cards = Card.where("#{selected}": search)
+      #render json: @cards
       render :index
-    else
-      @results = []
-    end
+    #else
+      #@cards = Card.all
+      #render json: @cards
+    #end
   end
 
   def create_user
