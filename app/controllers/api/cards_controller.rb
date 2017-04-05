@@ -1,10 +1,15 @@
 class Api::CardsController < ApplicationController
 
   def index
-    render json: Card.all
+    if params[:user_id]
+      render json: Card.where(user_id: params[:user_id])
+    elsif params[:city]
+      render json: Card.where(city: params[:city])
+    elsif params[:country]
+      render json: Card.where(country: params[:country])
+    else
+      render json: Card.all
   end
-
-
 
   def create
     card = Card.new
