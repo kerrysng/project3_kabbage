@@ -1,9 +1,11 @@
 class Api::TripsController < ApplicationController
+
   def index
     render json: Trip.all
   end
 
   def new
+    @user = current_user
   end
 
   def create
