@@ -8,10 +8,10 @@
 
 <hr>
 <h3>My Cards</h3>
+<div class="cards_container">
+</div>
 
-<div class="cards_container"></div>
-
-<%= render 'card_template' %>
+<%= render 'dashboard_card_template' %>
 
 <script>
 $(document).ready(function() {
@@ -22,20 +22,22 @@ $(document).ready(function() {
 
   $.ajax({
     url: 'http://localhost:3000/api/cards/',
-    // data: { user_id: user_id },
     method: 'GET'
   }).done(function(data){
-    console.log(data);
+
     var cards = [];
 
     for(var i=0; i<data.length; i++){
-      cards.push(new Card(data[i]));
-    }
+      if (data[i].user_id === user_id){
+        console.log('test');
+        cards.push(new Card(data[i]));
+      };
+    };
 
     //????
 
     cards.forEach(function(card){
-      var view = new CardItemView({model: card});
+      var view = new DashboardCardItemView({model: card});
       $('.cards_container').append(view.render().el);
     });
 
