@@ -9,6 +9,34 @@
   </head>
 
   <body>
+
+    <ul class="topnav">
+        <% if user_signed_in? %>
+           <a href="/dashboard">Dashboard</a>
+           <%=form_tag '/', method: 'delete' do %>
+           <a href="/">Homepage</a>
+           <% end %>
+          <% else %>
+
+          <li class ="dropdown"><a href="/">Login</a>
+            <ul class="dropdown-menu" >
+              <%= form_tag '/', method: 'post' do %>
+                <label for="">email</label>
+                  <input type="text" name="email">
+                    <label for="">password</label>
+                      <input type="password" name="password">
+                        <button>login</button>
+                         <% end %>
+            </ul>
+                     <li><a href="/user">Sign Up
+                   <%= form_tag '/user', method: 'get' do %>
+                <% end %>
+              </li>
+
+        <%end%>
+
+    </ul>
+
     <% if session[:first_name] != nil %>
       <p>Logged in: <%= session[:first_name] %><%=session[:id]%></p>
       <%= form_tag '/', method: 'delete' do %>

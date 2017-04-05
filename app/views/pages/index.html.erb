@@ -1,4 +1,6 @@
-<%= form_tag '/', method: 'post' do %>
+
+
+<!-- <%= form_tag '/', method: 'post' do %>
   <label for="">email</label>
   <input type="text" name="email">
   <label for="">password</label>
@@ -8,7 +10,7 @@
 
 <%= form_tag '/user', method: 'get' do %>
   <button>Sign Up</button>
-<% end %>
+<% end %> -->
 
 <div>
   <!-- <img src="/pages/map" alt=""> -->
@@ -17,7 +19,6 @@
     <button class="search-btn">Search</button>
   <% end %>
 </div>
-
 
 <div class="cards_container">
 </div>
@@ -41,6 +42,12 @@ $(document).ready(function() {
     selection = [];
     cards = [];
 
+    if(location!= ''){
+
+    }
+    else {
+      selected = result;
+    }
 
 
     if ($searchTerm != ''){
