@@ -31,98 +31,32 @@
 <script>
 $(document).ready(function() {
 
-  var $searchTerm;
-  var $limit;
 
-
-  var makeAJAXCall = function (location=''){
-  $offset = $limit - 10;
   $.ajax({
-    method: 'GET',
-    url: 'http://localhost:3000/api/cards/'
-   }).done(function(result){
+    url: 'http://localhost:3000/api/cards/',
+    method: 'GET'
+  }).done(function(data){
 
-    selected = [];
-    cards = [];
+  cards = [];
+    // var cards = <%= @cards.to_json %>;
 
-    if(location!= ''){
-    
-    }
-    else {
-      selected = result;
+    for(var i=0; i<data.length; i++){
+      cards.push(new Card(data[i]));
     }
 
-
-
-
-
-
-    for(i=$offset; i< $limit; i++){
-      cards.push(new Card(selected[i]));
-    }
+    //????
 
     cards.forEach(function(card){
       var view = new CardItemView({model: card});
       $('.cards_container').append(view.render().el);
     });
 
-     $limit += 10;
 
-   });
-
-  }
-
-  // load first ten elements on page load
-  makeAJAXCall();
-
-  //
-  // $.ajax({
-  //   url: 'http://localhost:3000/api/cards/',
-  //   method: 'GET'
-  // }).done(function(data){
-  //
-  //
-  //   // var cards = <%= @cards.to_json %>;
-  //
-  //   for(var i=0; i<data.length; i++){
-  //     cards.push(new Card(data[i]));
-  //   }
-  //
-  //   //????
-  //
-  //   cards.forEach(function(card){
-  //     var view = new CardItemView({model: card});
-  //     $('.cards_container').append(view.render().el);
-  //   });
-  //
-  //
-  //
-  // });
-
-
-
-  $(".search-btn").click(function(event){
-
-    event.preventDefault();
-
-    // make this case insensitive
-    $searchTerm = $('.search').val();
-    $limit = 10;
-    $(".cards_container").empty();
-
-    makeAJAXCall($searchTerm);
 
   });
 
 
-  $(window).scroll(function() {
-    if($(window).scrollTop() + $(window).height() == $(document).height()) {
 
-      makeAJAXCall();
-
-    }
-
-  });
 
 // reload on click, extract information from search bar
 // outside of document ready? should only be used after the document is
