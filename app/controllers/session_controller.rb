@@ -8,7 +8,7 @@ class SessionController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/dashboard'
     else
-      render :index
+      redirect_to '/new'
     end
   end
 
