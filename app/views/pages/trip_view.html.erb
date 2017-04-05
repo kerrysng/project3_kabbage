@@ -1,6 +1,6 @@
-<a href="/new_card_form/<%= @trip_id %>" id="create_new_card">CREATE NEW CARD</a>
+<button id="create_new_card">CREATE NEW CARD</button>
 <div id="new_card_container"></div>
-
+<!-- /new_card_form/<%= @trip_id %> -->
 <input type="hidden" value=" <%= @trip_id %> " id="trip_id">
 <div id="mapPin"></div>
 
@@ -26,9 +26,6 @@
     <input type="text" name="image_url" value="" class="new-card-image">
     <button class="new_card_action">SUBMIT</button>
   </form>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDos2y09tthYvRB3zKJ53njpqZkSFtX8u4&callback=initMap">
-  </script>
 </script>
 
 <script async defer
