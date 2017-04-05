@@ -1,4 +1,6 @@
-<%= form_tag '/', method: 'post' do %>
+
+
+<!-- <%= form_tag '/', method: 'post' do %>
   <label for="">email</label>
   <input type="text" name="email">
   <label for="">password</label>
@@ -8,16 +10,12 @@
 
 <%= form_tag '/user', method: 'get' do %>
   <button>Sign Up</button>
-<% end %>
+<% end %> -->
 
 <div>
   <!-- <img src="/pages/map" alt=""> -->
   <%= form_tag '/', method: 'get' do %>
-    <input type="text" name="search">
-    <select name="select">
-      <option value="country">country</option>
-      <option value="city">city</option>
-    </select>
+    <input type="text" class="search">
     <button class="search-btn">Search</button>
   <% end %>
 </div>
@@ -44,18 +42,18 @@
 <script>
 $(document).ready(function() {
 
-  var $searchTerm;
+  var $searchTerm = '';
   var $limit;
 
 
-  var makeAJAXCall = function (location=''){
+  var makeAJAXCall = function (){
   $offset = $limit - 10;
   $.ajax({
     method: 'GET',
     url: 'http://localhost:3000/api/cards/'
    }).done(function(result){
 
-    selected = [];
+    selection = [];
     cards = [];
 
     if(location!= ''){
@@ -66,17 +64,32 @@ $(document).ready(function() {
     }
 
 
+    if ($searchTerm != ''){
+      i=0;
+      while(result[i] != undefined){
+        if(result[i].city === $searchTerm || result[i].country === $searchTerm){
+          selection.push(result[i]);
+        }
+        i++;
+      }
 
-
-
+    }
+    else {
+      selection = result;
+    }
 
     for(i=$offset; i< $limit; i++){
-      cards.push(new Card(selected[i]));
+      if(result[i] != undefined){
+        cards.push(new Card(selection[i]));
+      }
     }
 
     cards.forEach(function(card){
-      var view = new CardItemView({model: card});
-      $('.cards_container').append(view.render().el);
+  //    debugger;
+      if (card.attributes.id != undefined){
+        var view = new CardItemView({model: card});
+        $('.cards_container').append(view.render().el);
+      }
     });
 
      $limit += 10;
@@ -86,6 +99,7 @@ $(document).ready(function() {
   }
 
   // load first ten elements on page load
+  $limit =10;
   makeAJAXCall();
 
   //
@@ -123,7 +137,7 @@ $(document).ready(function() {
     $limit = 10;
     $(".cards_container").empty();
 
-    makeAJAXCall($searchTerm);
+    makeAJAXCall();
 
   });
 
