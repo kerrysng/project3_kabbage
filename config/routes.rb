@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get '/trip/:id', to: 'pages#trip_view'
 
+  get '/new_trip', to: 'pages#new_trip'
+
   namespace :api do
     resources :trips , :cards
   end

@@ -15,8 +15,10 @@ class Api::TripsController < ApplicationController
     trip.name = params[:name]
 
     if trip.save
+      binding.pry
       render json: trip
     else
+      binding.pry
       render json: trip.errors
     end
   end

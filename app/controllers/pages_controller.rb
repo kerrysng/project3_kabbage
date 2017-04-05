@@ -53,4 +53,8 @@ class PagesController < ApplicationController
     render :new_card_form
   end
 
+  def new_trip
+    render :new_trip
+  end
+
 end
