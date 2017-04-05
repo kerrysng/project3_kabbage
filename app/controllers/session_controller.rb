@@ -6,9 +6,11 @@ class SessionController < ApplicationController
       session[:id] = user.id
       session[:first_name] = user.first_name
       session[:user_id] = user.id
+
+      @cards =  Card.find_by(user_id: user.id)
       redirect_to '/dashboard'
     else
-      render :index
+      redirect_to '/'
     end
   end
 
