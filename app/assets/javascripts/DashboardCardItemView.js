@@ -10,7 +10,7 @@ var DashboardCardItemView = Backbone.View.extend({
   events: {
     // 'click .edit': 'edit',
   //  'keyup input': 'save'
-   'mouseover': 'expand'
+   'click': 'expand'
   },
 
   // initialize: function(){
@@ -19,6 +19,7 @@ var DashboardCardItemView = Backbone.View.extend({
 
 
   expand: function(){
+    this.$el.css('display', 'none');
     this.$el.css('backgroundColor', 'black');
     // this.$el.css('height', 50'%');
     // this.$el.css('width');
