@@ -14,9 +14,6 @@
       <%= form_tag '/', method: 'delete' do %>
       <button>logout</button>
       <% end %>
-      <%= form_tag '/new_card_form', method: 'get' do %>
-        <button>Create Card</button>
-      <% end %>
     <% end %>
     <%= yield %>
   </body>

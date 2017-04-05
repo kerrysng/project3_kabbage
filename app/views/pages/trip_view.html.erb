@@ -1,5 +1,6 @@
-HELLO THIS IS TRIP view
+<a href="/new_card_form/<%= @trip_id %>">CREATE NEW CARD</a>
 
+<input type="hidden" value=" <%= @trip_id %> " id="trip_id">
 <div id="map"></div>
 <!-- async defer -->
 
@@ -16,6 +17,7 @@ HELLO THIS IS TRIP view
   <% end %>
 <%end%>
 
-<script
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDos2y09tthYvRB3zKJ53njpqZkSFtX8u4&callback=initPinMap">
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDos2y09tthYvRB3zKJ53njpqZkSFtX8u4&callback=initPinMap">
 </script>
