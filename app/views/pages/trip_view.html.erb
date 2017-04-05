@@ -1,0 +1,21 @@
+HELLO THIS IS TRIP view
+
+<div id="map"></div>
+<!-- async defer -->
+
+<% @cards.each do |card| %>
+  <% if card.user_id == session[:id] %>
+    <div><img src=<%= card.image_url %> alt=""> </div>
+    <div class=""><%=card.body%></div>
+    <div class="">
+      <%=card.city%>
+    </div>
+    <div class="">
+      <%=card.country%>
+    </div>
+  <% end %>
+<%end%>
+
+<script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDos2y09tthYvRB3zKJ53njpqZkSFtX8u4&callback=initPinMap">
+</script>

@@ -4,8 +4,6 @@ class Api::CardsController < ApplicationController
     render json: Card.all
   end
 
-
-
   def create
     card = Card.new
     card.image_url = params[:image_url]
@@ -23,7 +21,6 @@ class Api::CardsController < ApplicationController
       redirect_to '/new_card_form'
     end
   end
-
 
   def destroy
     card = Card.find(params[:id])

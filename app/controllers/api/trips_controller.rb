@@ -2,7 +2,6 @@ class Api::TripsController < ApplicationController
 
   def index
     render json: Trip.all
-
   end
 
   def new
@@ -17,10 +16,8 @@ class Api::TripsController < ApplicationController
 
     if trip.save
       render json: trip
-
     else
       render json: trip.errors
-
     end
   end
 
@@ -30,12 +27,10 @@ class Api::TripsController < ApplicationController
       render json: trip
     else
       render json: trip.errors
-
     end
   end
 
   def edit
     card = Trip.find(params[:name])
-
   end
 end
