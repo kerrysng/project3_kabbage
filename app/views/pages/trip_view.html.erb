@@ -1,21 +1,13 @@
-<a href="/new_card_form/<%= @trip_id %>" id="create_new_card">CREATE NEW CARD</a>
+<button id="create_new_card">CREATE NEW CARD</button>
 <div id="new_card_container"></div>
-
+<!-- /new_card_form/<%= @trip_id %> -->
 <input type="hidden" value=" <%= @trip_id %> " id="trip_id">
 <div id="mapPin"></div>
 
-<% @cards.each do |card| %>
-  <% if card.user_id == session[:id] %>
-    <div><img src=<%= card.image_url %> alt=""> </div>
-    <div class=""><%=card.body%></div>
-    <div class="">
-      <%=card.city%>
-    </div>
-    <div class="">
-      <%=card.country%>
-    </div>
-  <% end %>
-<%end%>
+
+<div class="cards_container">
+</div>
+
 
 <script id="new_card_form"type="BOOGY WOO DO">
 <div id="map"></div>
@@ -26,11 +18,57 @@
     <input type="text" name="image_url" value="" class="new-card-image">
     <button class="new_card_action">SUBMIT</button>
   </form>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDos2y09tthYvRB3zKJ53njpqZkSFtX8u4&callback=initMap">
-  </script>
 </script>
 
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDos2y09tthYvRB3zKJ53njpqZkSFtX8u4&callback=initPinMap">
+</script>
+
+
+
+
+
+
+<%= render 'card_template' %>
+
+<script>
+$(document).ready(function() {
+
+$trip_id = parseInt($('input#trip_id').val());
+
+  //debugger;
+  $.ajax({
+    method: 'GET',
+    url: '/api/cards/'
+   }).done(function(result){
+
+    cards = [];
+
+    i=0;
+    while(result[i] != undefined){
+      if(result[i].trip_id === $trip_id){
+        cards.push(new Card(result[i]));
+      }
+      i++;
+    }
+
+    // for(i=0; i< cards.length; i++){
+    //   if(result[i] != undefined){
+    //     cards.push(new Card(selection[i]));
+    //   }
+    // }
+
+    cards.forEach(function(card){
+  //    debugger;
+      if (card.attributes.id != undefined){
+        var view = new CardItemView({model: card});
+        $('.cards_container').append(view.render().el);
+      }
+    });
+
+
+   });
+
+
+});
 </script>

@@ -21,3 +21,4 @@
 //= require 'geolocation1'
 //= require 'geolocation2'
 //= require 'DashboardCardItemView'
+//= require 'trips'

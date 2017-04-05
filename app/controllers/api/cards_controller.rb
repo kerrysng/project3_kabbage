@@ -23,9 +23,10 @@ class Api::CardsController < ApplicationController
     card.city = params[:city]
 
     if card.save
-      redirect_to '/trip/'+params[:trip_id]
+      # redirect_to '/trip/'+params[:trip_id]
+      render json: card
     else
-      redirect_to '/new_card_form/'+params[:trip_id]
+      redirect_to '/trip/'+params[:trip_id]
     end
   end
 

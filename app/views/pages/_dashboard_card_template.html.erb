@@ -1,8 +1,21 @@
 <script id="dashboard-card-template" type="handlebars">
 
+  <header class="dashboard" style="">
+    <h3 class="dashboard">{{first_name}}</h3>
+
+    <h3 class="dashboard">{{last_name}}</h3>
+
+    <h3 class="dashboard">{{created_at}}</h3>
+  </header>
   <div class="image">
     <img src="{{image_url}}" alt="">
   </div>
+  <div class="dashboard" style="">
+    <p class="dashboard">{{body}}</p>
+  <footer class="dashboard" style="">
+    <h5 class="dashboard">{{country}}</h5>
+    <h5 class="dashboard">{{city}}</h5>
+  </footer>
 
 
 </script>

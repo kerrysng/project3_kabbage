@@ -35,7 +35,7 @@ $(document).ready(function() {
   $offset = $limit - 10;
   $.ajax({
     method: 'GET',
-    url: '/api/cards/'
+    url: 'http://localhost:3000/api/cards/'
    }).done(function(result){
 
     selection = [];

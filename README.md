@@ -45,7 +45,7 @@ Things you may want to cover:
         * Microblogging - travel
 * Chosen - micro blogging.
 * Wireframes / Tables
-* INSERT PICS of wireframe and Tables
+* <INSERT PICS> of wireframe and Tables
 * Log in / Authentication completed.
 * Create User Account completed
 * geolocation completed
@@ -53,12 +53,21 @@ Things you may want to cover:
 
 ###### 04/04/17
 
-* Ajax call to API cards completed.
+** Ajax call to API cards completed.
 * Search function in index completed.
+* Add Card VIEW added
+* Dashboard VIEW added
+* Trip VIEW added
+* New Trip VIEW added
 
 ###### 05/04/17
 
 * Search function updated - enable search for either country or city
+* Index View -
+* Dashboard view - able to view USER cards
+    * click function working - picture expands to show country / city / date created / text
+    * Create Trip button working / links to trip new form.
+    * User TRIPS now showing
 
 
 ### UNRESOLVED ISSUES
