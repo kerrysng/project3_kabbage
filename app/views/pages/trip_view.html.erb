@@ -1,8 +1,8 @@
-<a href="/new_card_form/<%= @trip_id %>">CREATE NEW CARD</a>
+<a href="/new_card_form/<%= @trip_id %>" id="create_new_card">CREATE NEW CARD</a>
+<div id="new_card_container"></div>
 
 <input type="hidden" value=" <%= @trip_id %> " id="trip_id">
-<div id="map"></div>
-<!-- async defer -->
+<div id="mapPin"></div>
 
 <% @cards.each do |card| %>
   <% if card.user_id == session[:id] %>
@@ -17,6 +17,19 @@
   <% end %>
 <%end%>
 
+<script id="new_card_form"type="BOOGY WOO DO">
+<div id="map"></div>
+  <form class="new-card-form" action="">
+    <label class="new-" for="">Card Name</label>
+    <input type="text" name="name" value="" class="new-card-name">
+    <label for="">Image Url</label>
+    <input type="text" name="image_url" value="" class="new-card-image">
+    <button class="new_card_action">SUBMIT</button>
+  </form>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDos2y09tthYvRB3zKJ53njpqZkSFtX8u4&callback=initMap">
+  </script>
+</script>
 
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDos2y09tthYvRB3zKJ53njpqZkSFtX8u4&callback=initPinMap">

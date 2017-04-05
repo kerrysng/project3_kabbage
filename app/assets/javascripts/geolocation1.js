@@ -9,7 +9,7 @@ function initPinMap() {
       places.push(createObject(data[i].city,data[i].lat,data[i].long));
       flightPlanCoordinates.push({lat:data[i].lat,lng:data[i].long});
     }
-    var map = new google.maps.Map(document.getElementById('map'), {
+    var map = new google.maps.Map(document.getElementById('mapPin'), {
       zoom: 6,
       center: new google.maps.LatLng(data[0].lat,data[0].long),
       mapTypeId: 'terrain'

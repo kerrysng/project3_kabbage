@@ -33,7 +33,6 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-
     @trips = Trip.all
     @cards = Card.where(id: session[:user_id])
     @user_id= session[:user_id]
