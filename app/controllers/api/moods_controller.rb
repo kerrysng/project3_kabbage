@@ -1,4 +1,5 @@
 class Api::MoodsController < ApplicationController
+
   def create
     mood = Mood.new
     mood.user_id = session[:id]
