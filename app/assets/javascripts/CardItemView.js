@@ -19,9 +19,9 @@ var CardItemView = Backbone.View.extend({
   },
 
 
-  expand: function(){
-    this.$el.css("border", "#red solid 1px");
-  },
+  // expand: function(){
+  //   this.$el.css("border", "#red solid 1px");
+  // },
 
 
  //  save: function(event){
