@@ -18,20 +18,14 @@
   <footer>
     <h5>{{country}}</h5>
     <h5>{{city}}</h5>
-    <%= form_tag '/api/trips', method: 'post' do %>
-      <label for="">Start-Date</label>
-      <input type="date" name="start_date" >
 
-      <label for="">End-Date</label>
-      <input type="date" name="end_date">
+    <form action="/api/moods/" method="post">
+      <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+      <input type="hidden" name="card_id" value="{{id}}" id="cardID">
+      <button class="mood-btn">Add to mood board</button>
+    </form>
 
-      <label for="">Trip-Name</label>
-      <input type="text" name="name">
-
-      <button>Submit</button>
-    <% end %>
-    <button class="mood-btn">Add to mood board</button>
-  </footer>
+</footer>
 
 
 </script>

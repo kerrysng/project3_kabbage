@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get '/new_trip', to: 'pages#new_trip'
 
   namespace :api do
-    resources :trips , :cards
+    resources :trips , :cards, :moods
   end
 
 end
