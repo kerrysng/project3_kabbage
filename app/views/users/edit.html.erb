@@ -2,24 +2,26 @@
 <h1>Update your profile</h1>
 
 
-<div class="row">
   <div class="span6 offset3">
     <%= form_tag '/user/update', method: 'patch' do %>
     <legend>Update</legend>
-    <fieldset class="account-info">
-
-      <label for="">email</label>
-      <input type="email" name="email-address" placeholder="name@domain.com">
+      <div class="edit-form-group">
+        <label for="">email</label>
+        <input type="email"  name="email-address" placeholder="name@domain.com">
+      </div>
+      <div class="edit-form-group">
       <label for="">password</label>
-      <input type="password" name="password" placeholder="password" required>
+      <input type="password"  name="password" placeholder="password" required>
+      </div>
+      <div class="edit-form-group">
       <label for="">First Name</label>
-      <input type="text" name="first_name" placeholder="first_name">
+      <input type="text"  name="first_name" placeholder="first_name">
+      </div>
+      <div class="edit-form-group">
       <label for="">Last Name</label>
       <input type="text" name="last_name" placeholder="last_name">
-
-    </fieldset>
+      </div>
 
     <button>Submit</button>
     <% end %>
   </div>
-</div>

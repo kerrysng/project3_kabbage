@@ -10,41 +10,47 @@
   </head>
 
   <body>
-    <nav class="topnav">
-        <div class="logo">
-          <h1>Tripr</h1>
-        </div>
-        <% if user_signed_in? %>
+    <nav class="navbar bg-faded navbar-light navbar-toggleable-sm">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src= "/images/logo/TRipr.png">
+        </a>
+      <div class="navbar-nav">
+          <% if user_signed_in? %>
           <div class="left-side">
-            <ul>
-              <li><a href="/">Homepage</a></li>
-              <li><a href="/dashboard">Dashboard</a></li>
-              <li><a href ="/user/edit">Edit Profile</a></li>
-            </ul>
-          </div>
+          <ul= "nav nav-tabs">
+            <a class="nav-item nav-link" href="/">Homepage</a></li>
+            <a class="nav-item nav-link" href="/dashboard">Dashboard</a></li>
+            <a class="nav-item nav-link" href ="/user/edit">Edit Profile</a></li>
+
+        </div>
           <div class="right-side">
             <p>Logged in as: <%= session[:first_name] %></p>
             <%= form_tag '/', method: 'delete' do %>
-              <button>Logout</button>
+            <button>Logout</button>
             <% end %>
           </div>
-        <% else %>
-          <div class="right-side">
-            <div class="login-form">
-              <%= form_tag '/', method: 'post' do %>
-                <label for=""><i class="fa fa-envelope-o" aria-hidden="true"></i></label>
-                <input type="text" name="email" placeholder="Your_Email@mail.com">
-                <label for=""><i class="fa fa-key" aria-hidden="true"></i></label>
-                <input type="password" name="password" placeholder="Password">
-                <button>login</button>
-              <% end %>
+          <% else %>
+            <div class="right-side">
+              <div class="login-form">
+                  <%= form_tag '/', method: 'post', class: "form-inline" do %>
+                    <label for=""><i class="fa fa-envelope-o" aria-hidden="true"></i></label>
+                      <input type="text" class="form-control" name="email" placeholder="Your_Email@mail.com">
+
+                    <label for=""><i class="fa fa-key" aria-hidden="true"></i></label>
+
+                      <input type="password" class="form-control mr-2" name="password" placeholder="Password">
+
+                    <button class="btn-btn-info">login</button>
+                  <% end %>
+              </div>
+                <a class="nav-item nav-link" href="/user">Sign Up</a>
             </div>
-            <div class="sign-up">
-              <a href="/user">Sign Up</a>
-            </div>
-          </div>
-        <% end %>
-    </nav>
+          <% end %>
+        </ul>
+      </div>
+    </div> <!--container -->
+   </nav> <!--topnav -->
     <%= yield %>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
