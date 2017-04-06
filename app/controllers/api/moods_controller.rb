@@ -14,7 +14,7 @@ class MoodsController < ApplicationController
   end
 
   def edit
-
+    
   end
 
   def create
