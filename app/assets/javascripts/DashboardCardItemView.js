@@ -15,6 +15,11 @@ var DashboardCardItemView = Backbone.View.extend({
 
   showmeState: false,
 
+
+  initialize: function(){
+    this.listenTo(this.model, 'change', this.render);
+  },
+
   editForm: function(){
     this.$el.find('.notedit').hide();
     this.$el.find('.isedit').show();

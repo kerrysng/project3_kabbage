@@ -1,9 +1,5 @@
 class Api::MoodsController < ApplicationController
 
-  def index
-    render json: Mood.all
-  end
-
   def create
     mood = Mood.new
     mood.user_id = session[:id]
@@ -13,11 +9,14 @@ class Api::MoodsController < ApplicationController
     redirect_to '/'
   end
 
-
-
-
-
-
+  def show
+    array = [];
+    mood = Mood.where(user_id: session[:id])
+    mood.each do |mood|
+      array << mood.card
+    end
+    render json: array
+  end
 
 
 end

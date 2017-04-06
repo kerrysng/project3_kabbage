@@ -1,18 +1,27 @@
 <h1>HI THIS IS MOODBOARD</h1>
-<!-- <button id="create_new_card">CREATE NEW CARD</button>
-<div id="new_card_container"></div> -->
+<button id="create_new_card">CREATE NEW CARD</button>
+<div id="new_card_container"></div>
 <!-- /new_card_form/<%= @trip_id %> -->
-<!-- <input type="hidden" value=" <%= @trip_id %> " id="trip_id">
-<div id="mapPin"></div> -->
-
+<input type="hidden" value=" <%= @user_id %> " id="user_id">
+<div id="mapPin"></div>
 
 <div class="cards_container">
 </div>
 
-<!-- <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDos2y09tthYvRB3zKJ53njpqZkSFtX8u4&callback=initPinMap">
+<script id="new_card_form"type="BOOGY WOO DO">
+<div id="map"></div>
+  <form class="new-card-form" action="">
+    <label class="new-" for="">Card Name</label>
+    <input type="text" name="name" value="" class="new-card-name">
+    <label for="">Image Url</label>
+    <input type="text" name="image_url" value="" class="new-card-image">
+    <button class="new_card_action">SUBMIT</button>
+  </form>
 </script>
- -->
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDos2y09tthYvRB3zKJ53njpqZkSFtX8u4&callback=initMoodPinMap">
+</script>
 
 <%= render 'dashboard_card_template' %>
 
@@ -20,56 +29,26 @@
 $(document).ready(function() {
 
   var user_id = <%=session[:id] %>;
-  var cards_id = []; // stores card ids for the mood board
-  // <%= @user_id.to_json %>;
 
   console.log(user_id);
-
+  var $id = $('#user_id').val();
   $.ajax({
-    url: '/api/moods/',
+    url: '/api/moods/'+$id,
     method: 'GET'
   }).done(function(data){
-    console.log(data)
-
-
-    for(var i=0; i<data.length; i++){
-      if (data[i].user_id === user_id){
-        cards_id.push(data[i].card_id)
-
-        // cards.push(new Card(data[i]));
-      };
-    };
-
-
-  });
-
-  $.ajax({
-    url: '/api/cards/',
-    data: {cards_id: cards_id},
-    method: 'GET'
-  }).done(function(data){
-    console.log(data);
 
     var cards = [];
 
     for(var i=0; i<data.length; i++){
-      if (data[i].user_id === user_id){
-        console.log('test');
         cards.push(new Card(data[i]));
-      };
     };
-
 
     cards.forEach(function(card){
       var view = new DashboardCardItemView({model: card});
       $('.cards_container').append(view.render().el);
     });
 
-
-
   });
-
-
 });
 
 </script>
