@@ -23,3 +23,4 @@
 //= require 'geolocation3'
 //= require 'DashboardCardItemView'
 //= require 'trips'
+//= require 'MoodboardCardItemView'

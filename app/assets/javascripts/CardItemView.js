@@ -11,7 +11,7 @@ var CardItemView = Backbone.View.extend({
     'click .edit': 'edit',
   //  'keyup input': 'save'
     'hover': 'expand',
-    'click .mood-btn': 'add2mood'
+
   },
 
   initialize: function(){
@@ -22,11 +22,6 @@ var CardItemView = Backbone.View.extend({
   expand: function(){
     this.$el.css("border", "#red solid 1px");
   },
-
-  add2mood: function() {
-    console.log('testing mood function');
-  },
-
 
 
  //  save: function(event){
