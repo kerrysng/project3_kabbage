@@ -8,7 +8,7 @@ class Api::CardsController < ApplicationController
     # elsif params[:country]
     #   render json: Card.where(country: params[:country])
     # else
-      render json: Card.all
+    render json: Card.all
   end
 
   def create
