@@ -1,5 +1,4 @@
 
-
 <script id="card-template" type="handlebars">
   <header>
     <h3>{{first_name}}</h3>
@@ -19,7 +18,19 @@
   <footer>
     <h5>{{country}}</h5>
     <h5>{{city}}</h5>
-    <button>Add to mood board</button>
+    <%= form_tag '/api/trips', method: 'post' do %>
+      <label for="">Start-Date</label>
+      <input type="date" name="start_date" >
+
+      <label for="">End-Date</label>
+      <input type="date" name="end_date">
+
+      <label for="">Trip-Name</label>
+      <input type="text" name="name">
+
+      <button>Submit</button>
+    <% end %>
+    <button class="mood-btn">Add to mood board</button>
   </footer>
 
 
