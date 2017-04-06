@@ -15,7 +15,7 @@ The following frameworks/languages/library were used in this:
 
 ### APPROACH
 
-We decided on a microblogging travel app as the group had a better view of the outcome and function for the app.
+We decided on a microblogging travel app as the group had a clearer view of the outcome and function for the app.
 
 We first created wireframes and relational tables/databases.
 
@@ -24,6 +24,9 @@ We first created wireframes and relational tables/databases.
  ![Wireframes](/Users/Barry/wdi11/projects/Project3/project3_kabbage/app/assets/images/wireframe.JPG)
 
  ![Tables](/Users/Barry/wdi11/projects/Project3/project3_kabbage/app/assets/images/tables.JPG)
+
+
+
 
 
 ### FUNCTION - SOLUTION
