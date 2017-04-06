@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   get '/', to: 'pages#index'
 
   get 'sessions/new'
@@ -6,6 +8,9 @@ Rails.application.routes.draw do
 
   get '/user', to: 'users#index'
   post '/user/new', to: 'users#create'
+
+  get '/user/edit', to: 'users#edit'
+  patch '/user/update', to: 'users#update'
 
   post '/', to: 'session#create_session'
   delete '/', to: 'session#destroy_session'

@@ -1,0 +1,19 @@
+
+<h1>Update your profile</h1>
+
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_tag '/user/update', method: 'patch' do %>
+    <label for="">email</label>
+    <input type="text" name="email">
+    <label for="">password</label>
+    <input type="password" name="password">
+    <label for="">First Name</label>
+    <input type="text" name="first_name">
+    <label for="">Last Name</label>
+    <input type="text" name="last_name">
+    <button>Submit</button>
+    <% end %>
+  </div>
+</div>
