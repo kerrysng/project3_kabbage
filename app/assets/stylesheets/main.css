@@ -22,6 +22,7 @@ html, body {
 
 .topnav {
   background-color: rgb(226, 220, 199);
+  width: 90%
 }
 .topnav li{
   list-style: none;
@@ -44,6 +45,8 @@ html, body {
   text-decoration: none;
   font-size: 27px;
 }
+
+
 
 .topnav a:hover {
   background-color: #ddd;
