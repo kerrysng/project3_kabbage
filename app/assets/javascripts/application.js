@@ -20,5 +20,6 @@
 //= require 'app'
 //= require 'geolocation1'
 //= require 'geolocation2'
+//= require 'geolocation3'
 //= require 'DashboardCardItemView'
 //= require 'trips'

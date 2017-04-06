@@ -40,6 +40,7 @@ class PagesController < ApplicationController
   end
 
   def mood_board
+    @user_id = session[:id]
     render :mood_board
   end
 
