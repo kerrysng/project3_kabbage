@@ -12,7 +12,9 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDos2y09tthYvRB3zKJ53njpqZkSFtX8u4&callback=initPinMap">
 </script>
 
-<%= render 'card_template' %>
+
+<%= render 'dashboard_card_template' %>
+
 
 <script>
 $(document).ready(function() {
@@ -44,7 +46,7 @@ $trip_id = parseInt($('input#trip_id').val());
     cards.forEach(function(card){
   //    debugger;
       if (card.attributes.id != undefined){
-        var view = new CardItemView({model: card});
+        var view = new DashboardCardItemView({model: card});
         $('.cards_container').append(view.render().el);
       }
     });
