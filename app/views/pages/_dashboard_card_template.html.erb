@@ -3,15 +3,22 @@
   <header class="dashboard" style="">
     <h3 class="dashboard">{{created_at}}</h3>
   </header>
-  <div class="image">
+  <div class="image notedit">
     <img src="{{image_url}}" alt="">
   </div>
-  <div class="dashboard" style="">
+  <div class="dashboard notedit" style="">
     <p class="dashboard">{{body}}</p>
+  </div>
   <footer class="dashboard" style="">
     <h5 class="dashboard">{{country}}</h5>
     <h5 class="dashboard">{{city}}</h5>
-    <button class="dashboard edit"> Edit </button>
+    <button class="edit notedit">Edit</button>
+    <form class="isedit">
+    <input type="text" name="image_url" value="{{image_url}}">
+    <input type="textarea" name="body" value="{{body}}">
+    <button class="">Save</button>
+    </form>
+
   </footer>
 
 </script>

@@ -8,11 +8,17 @@ var DashboardCardItemView = Backbone.View.extend({
   },
 
   events: {
-    
-   'click': 'toggleContent'
+
+   'click .image': 'toggleContent',
+   'click .edit': 'editForm'
   },
 
   showmeState: false,
+
+  editForm: function(){
+    this.$el.find('.notedit').hide();
+    this.$el.find('.isedit').show();
+  },
 
   toggleContent: function(){
     if (this.showmeState === false) {
@@ -36,6 +42,7 @@ var DashboardCardItemView = Backbone.View.extend({
     var html = this.template()(this.model.toJSON());
     this.$el.html(html);
     this.hideText();
+    this.$el.find('.isedit').hide();
     return this;
   }
 });
