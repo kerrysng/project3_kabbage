@@ -49,9 +49,11 @@ $(document).ready(function(){
         method: 'post',
         data: $('.new-card-form').serialize()
       }).done(function(data){
-        console.log(data)
-        var view = new CardItemView({model: data});
+      //  console.log(data)
+        var card = new Card(data)
+        var view = new DashboardCardItemView({model: card});
         $('.cards_container').append(view.render().el);
+        $('#new_card_container').empty();
 
         // var source = $('#card-template').html();
         // var templateFunction = Handlebars.compile(source);
