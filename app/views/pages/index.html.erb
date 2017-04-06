@@ -1,11 +1,13 @@
-<div>
-<!-- <img src="/pages/map" alt=""> -->
-  <%= form_tag '/', method: 'get' do %>
-    <input type="text" class="search">
-    <button class="search-btn">Search</button>
-  <% end %>
-</div>
-
+<section class="fine-pic">
+  <div class="fine-back center-stuff">
+    <h1>Tripr</h1>
+    <p>Your new photo share experience</p>
+    <%= form_tag '/', method: 'get' do %>
+    <input type="text" class="search form-control" placeholder="Enter in your next destination">
+    <button class="btn btn-success search-btn">Search</button>
+    <% end %>
+  </div>
+</section>
 
 <div class="cards_container  container-fluid">
 </div>
@@ -68,32 +70,6 @@ $(document).ready(function() {
   // load first ten elements on page load
   $limit =10;
   makeAJAXCall();
-
-  //
-  // $.ajax({
-  //   url: 'http://localhost:3000/api/cards/',
-  //   method: 'GET'
-  // }).done(function(data){
-  //
-  //
-  //   // var cards = <%= @cards.to_json %>;
-  //
-  //   for(var i=0; i<data.length; i++){
-  //     cards.push(new Card(data[i]));
-  //   }
-  //
-  //   //????
-  //
-  //   cards.forEach(function(card){
-  //     var view = new CardItemView({model: card});
-  //     $('.cards_container').append(view.render().el);
-  //   });
-  //
-  //
-  //
-  // });
-
-
 
   $(".search-btn").click(function(event){
 
