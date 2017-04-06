@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   $('#create_new_card').on('click',function(){
     var $newForm = $('#new_card_container').append(createForm());
     geoLocation();
@@ -15,7 +16,7 @@ $(document).ready(function(){
     var $input6 = $('<input>').attr('type','text').attr('name','image_url');
     var $label2 = $('<label>').text("Description");
     var $input7 = $('<input>').attr('type','text').attr('name','body');
-    var $button = $('<button>').text("Submit");
+    var $button = $('<button>').text("Please Wait").addClass('btn btn-warning').attr('id','submit-btn');
     return $form.append($input1).append($input2).append($input3).append($input4).append($input5).append($label1).append($input6).append($label2).append($input7).append($button);
   }
 
@@ -26,18 +27,20 @@ $(document).ready(function(){
     }
 
     function handle_geolocation_query(position){
-      var geocoder = new google.maps.Geocoder;
-      var infowindow = new google.maps.InfoWindow;
+      debugger
       var a = position.coords.latitude.toFixed(6);
       var b = position.coords.longitude.toFixed(6);
       var latlng = {lat: parseFloat(a), lng: parseFloat(b)};
       $('#latitude').val(a);
       $('#longitude').val(b);
       $('#tripId').val($('#trip_id').val());
+      var geocoder = new google.maps.Geocoder;
+      var infowindow = new google.maps.InfoWindow;
       geocoder.geocode({'location': latlng}, function(results, status) {
         var locationArray = results[5].formatted_address.split(", ");
         $('#country').val(locationArray[2]);
         $('#city').val(locationArray[0]);
+        $('#submit-btn').removeClass("btn-warning").addClass("btn-success").text("Submit");
       })
     }
 
@@ -49,17 +52,10 @@ $(document).ready(function(){
         method: 'post',
         data: $('.new-card-form').serialize()
       }).done(function(data){
-      //  console.log(data)
         var card = new Card(data)
         var view = new DashboardCardItemView({model: card});
         $('.cards_container').append(view.render().el);
         $('#new_card_container').empty();
-
-        // var source = $('#card-template').html();
-        // var templateFunction = Handlebars.compile(source);
-        // var html = templateFunction(data);
-        // $('.wrapper').append(html);
-        // button();
       })
     })
   }

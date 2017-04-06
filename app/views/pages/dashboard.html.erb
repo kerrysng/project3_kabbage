@@ -1,22 +1,30 @@
 <hr>
-<h1>dashboard</h1>
-<hr>
-<h3>trips</h3>
-<% @trips.each do |trip| %>
-  <% if trip.user_id == session[:id] %>
-    <div><a href="/trip/<%=trip.id%>"><%=trip.name%></a></div>
+<h1>Dashboard</h1>
+<hr
+
+<div class="trips">
+  <h3 class="text-center">Trips</h3>
+
+  <% @trips.each do |trip| %>
+    <% if trip.user_id == session[:id] %>
+      <div class="text-center"><a href="/trip/<%=trip.id%>"><%=trip.name%></a></div>
+    <% end %>
   <% end %>
-<% end %>
 
-<%= form_tag '/new_trip', method: 'get' do %>
-  <button>Create Trip</button>
-<% end %>
+  <%= form_tag '/new_trip', method: 'get' do %>
+    <button class="btn btn-success">Create Trip</button>
+  <% end %>
 
-<hr>
+</div>
+<!--
+<hr> -->
 
-<h3>My Cards</h3>
+<div class="text-center my-cards">
+  <h3>My Cards</h3>
+
 
 <div class="cards_container container-fluid">
+
 </div>
 
 <%= render 'dashboard_card_template' %>
@@ -55,10 +63,6 @@ $(document).ready(function() {
 
 });
 </script>
-
-<%= form_tag '/new_card_form', method: 'get' do %>
-  <button>create new card</button>
-<% end %>
 
 <hr>
 <a href="/mood_board">Mood Board</a>

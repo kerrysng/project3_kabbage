@@ -45,7 +45,7 @@ class PagesController < ApplicationController
   end
 
   def trip_view
-    @trip_id = params[:id]
+    @trip = Trip.find(params[:id])
     @cards = Card.all
     render :trip_view
   end

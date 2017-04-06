@@ -14,8 +14,6 @@ Rails.application.routes.draw do
   post '/', to: 'session#create_session'
   delete '/', to: 'session#destroy_session'
 
-  get '/new_card_form/:id', to: 'pages#new_card_form'
-
   get '/dashboard', to: 'pages#dashboard'
   get '/mood_board', to: 'pages#mood_board'
 
