@@ -1,13 +1,11 @@
-<hr>
-<h1>Dashboard</h1>
-<hr
+<h1 class="dashboard-header">Dashboard</h1>
 
-<div class="trips">
-  <h3 class="text-center">Trips</h3>
+<div class="text-center my-trips">
+  <h3 class="text-center">My Trips</h3>
 
   <% @trips.each do |trip| %>
     <% if trip.user_id == session[:id] %>
-      <div class="text-center"><a href="/trip/<%=trip.id%>"><%=trip.name%></a></div>
+      <div class="dashboard-trip text-center"><a href="/trip/<%=trip.id%>"><%=trip.name%></a></div>
     <% end %>
   <% end %>
 
@@ -21,10 +19,8 @@
 
 <div class="text-center my-cards">
   <h3>My Cards</h3>
-
-
-<div class="cards_container container-fluid">
-
+  <div class="cards_container container-fluid">
+  </div>
 </div>
 
 <%= render 'dashboard_card_template' %>
@@ -33,8 +29,6 @@
 $(document).ready(function() {
 
   var user_id =  <%= @user_id.to_json %>;
-
-  console.log(user_id);
 
   $.ajax({
     url: '/api/cards/',
@@ -45,24 +39,20 @@ $(document).ready(function() {
 
     for(var i=0; i<data.length; i++){
       if (data[i].user_id === user_id){
-        console.log('test');
         cards.push(new Card(data[i]));
       };
     };
 
-    //????
 
     cards.forEach(function(card){
       var view = new DashboardCardItemView({model: card});
       $('.cards_container').append(view.render().el);
     });
 
-
-
   });
 
 });
 </script>
-
-<hr>
-<a href="/mood_board">Mood Board</a>
+<div class="mood-board text-center">
+  <a href="/mood_board">Mood Board<p>checkout your future plans</p></a>
+</div>
