@@ -9,47 +9,14 @@ class Api::MoodsController < ApplicationController
     redirect_to '/'
   end
 
-  # def index
-  #   @moods = Mood.all
-  #
-  # end
-
-  # def show
-  # end
-
-
-
-  # def edit
-  #
-  # end
-
-  # def create
-  #   @mood = current_user.moods.build(mood_params)
-  #   if @mood.save
-  #     redirect_to @mood
-  #   else
-  #     render :new
-  #   end
-  # end
-  #
-  # def update
-  # end
-  #
-  # def destroy
-  #   @mood.destroy
-  #   redirect_to moods_url
-  # end
-  #
-  #
-  #
-  # def mood_params
-  #   params.permit(:card_id, :trip_id)
-  # end
-
-
-
-
-
+  def show
+    array = [];
+    mood = Mood.where(user_id: session[:id])
+    mood.each do |mood|
+      array << mood.card
+    end
+    render json: array
+  end
 
 
 end
