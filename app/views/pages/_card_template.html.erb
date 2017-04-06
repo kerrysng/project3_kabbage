@@ -1,5 +1,4 @@
 
-
 <script id="card-template" type="handlebars">
   <header>
     <h3>{{first_name}}</h3>
@@ -19,8 +18,14 @@
   <footer>
     <h5>{{country}}</h5>
     <h5>{{city}}</h5>
-    <button>Add to mood board</button>
-  </footer>
+
+    <form action="/api/moods/" method="post">
+      <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+      <input type="hidden" name="card_id" value="{{id}}" id="cardID">
+      <button class="mood-btn">Add to mood board</button>
+    </form>
+
+</footer>
 
 
 </script>
