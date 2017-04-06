@@ -40,7 +40,7 @@ $(document).ready(function(){
         $('#city').val(locationArray[0]);
       })
     }
-    
+
     $('.new-card-form').on('submit',function(event){
       event.preventDefault();
       console.log("hello this button is working")
@@ -50,6 +50,9 @@ $(document).ready(function(){
         data: $('.new-card-form').serialize()
       }).done(function(data){
         console.log(data)
+        var view = new CardItemView({model: data});
+        $('.cards_container').append(view.render().el);
+
         // var source = $('#card-template').html();
         // var templateFunction = Handlebars.compile(source);
         // var html = templateFunction(data);
