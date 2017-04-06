@@ -1,30 +1,4 @@
-
 class Api::MoodsController < ApplicationController
-
-
-  def index
-    @moods = Mood.all
-
-  end
-
-  def show
-    array = []
-    moods = Mood.where(user_id: session[:id])
-    moods.each do |mood|
-      array  << mood.card
-    end
-    render json: array
-  end
-
-  def new
-    @mood = current_user.moods.build
-
-  end
-
-  def edit
-
-  end
-
 
   def create
     mood = Mood.new

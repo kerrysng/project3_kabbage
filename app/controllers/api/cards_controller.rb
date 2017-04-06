@@ -49,11 +49,12 @@ class Api::CardsController < ApplicationController
   end
 
   def update
-    card = Card.find(params[:id])
+    card = Card.find(params[:card_id])
     card.body = params[:body]
     card_image = params[:image_url]
     if card.save
-      render json: Card.all
+
+      redirect_to '/dashboard' ###########
     else
       render json: card.errors
     end
