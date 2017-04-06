@@ -1,25 +1,4 @@
-
 class Api::MoodsController < ApplicationController
-
-
-  def index
-    @moods = Mood.all
-
-  end
-
-  def show
-  end
-
-  def new
-    @mood = current_user.moods.build
-
-  end
-
-  def edit
-    
-  end
-
-
   def create
     mood = Mood.new
     mood.user_id = session[:id]
