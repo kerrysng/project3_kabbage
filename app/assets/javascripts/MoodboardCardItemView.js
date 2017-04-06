@@ -35,11 +35,13 @@ var MoodboardCardItemView = Backbone.View.extend({
   hideText: function() {
    this.$el.find('.moodboard').hide();
    this.showmeState = false;
+   this.$el.removeClass( "full_view" );
   },
 
   showText: function() {
    this.$el.find('.moodboard').show();
    this.showmeState = true;
+   this.$el.addClass( "full_view" );
   },
 
   render: function(){

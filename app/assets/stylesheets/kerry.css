@@ -6,28 +6,23 @@
   font-size: 40px;
 }
 
-/*.form-inline {
+.form-inline {
   float: right;
 }
 
-.navbar-nav {
+#navbar{
   background-color: rgb(226, 220, 199);
-  width: 100%
-};*/
-/*.navbar-nav li{
-  list-style: none;
-  display: inline-block;
-};*/
+};
 
-/*.navbar-nav a {
+/*#navbar a {
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 27px;
-};
+  font-size: 40px;
+};*/
 
-.navbar-nav a:hover {
+#navbar a:hover {
   background-color: #ddd;
   color: black;
 };*/

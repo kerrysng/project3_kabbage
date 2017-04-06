@@ -1,23 +1,11 @@
-<h1>HI THIS IS MOODBOARD</h1>
-<button id="create_new_card">CREATE NEW CARD</button>
-<div id="new_card_container"></div>
-<!-- /new_card_form/<%= @trip_id %> -->
-<input type="hidden" value=" <%= @user_id %> " id="user_id">
+<h1>Moodboard</h1>
 <div id="mapPin"></div>
+<input type="hidden" value=" <%= @user_id %> " id="user_id">
 
-<div class="cards_container">
+
+<div class="cards_container  container-fluid">
+
 </div>
-
-<script id="new_card_form"type="BOOGY WOO DO">
-<div id="map"></div>
-  <form class="new-card-form" action="">
-    <label class="new-" for="">Card Name</label>
-    <input type="text" name="name" value="" class="new-card-name">
-    <label for="">Image Url</label>
-    <input type="text" name="image_url" value="" class="new-card-image">
-    <button class="new_card_action">SUBMIT</button>
-  </form>
-</script>
 
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDos2y09tthYvRB3zKJ53njpqZkSFtX8u4&callback=initMoodPinMap">

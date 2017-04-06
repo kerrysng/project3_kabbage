@@ -1,0 +1,48 @@
+.card {
+  width: 350px;
+  border: 1px solid lightgrey;
+  /*border-radius: 5px;*/
+  margin: 20px;
+  display: inline-block;
+  vertical-align: top;
+  background-color: white;
+  padding: 15px;
+  /*display: flex;*/
+  /*box-shadow: 2px 2px 2px #888888;*/
+}
+
+.card img {
+  /*max-width: 100%;*/
+  width: 320px;
+  height: 180px;
+}
+
+.card:hover {
+  /*border-color: blue;*/
+}
+
+.text {
+  padding: 15px;
+  display: inline-block;
+  /*border: 1px solid grey;
+  margin: 10px;*/
+}
+
+.image {
+  display: inline-block;
+}
+
+footer {
+  display: inline-block;
+}
+
+.full_view {
+  position: absolute;
+}
+
+.card button {
+  margin: 5px;
+}
+/*.full_view img {
+  height: 320px;
+}*/

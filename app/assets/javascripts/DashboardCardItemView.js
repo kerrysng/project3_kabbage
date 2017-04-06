@@ -36,11 +36,13 @@ var DashboardCardItemView = Backbone.View.extend({
   hideText: function() {
    this.$el.find('.dashboard').hide();
    this.showmeState = false;
+   this.$el.removeClass( "full_view" );
   },
 
   showText: function() {
    this.$el.find('.dashboard').show();
    this.showmeState = true;
+   this.$el.addClass( "full_view" );
   },
 
   render: function(){

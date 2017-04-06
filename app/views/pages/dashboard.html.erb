@@ -1,22 +1,26 @@
-<hr>
-<h1>dashboard</h1>
-<hr>
-<h3>trips</h3>
-<% @trips.each do |trip| %>
-  <% if trip.user_id == session[:id] %>
-    <div><a href="/trip/<%=trip.id%>"><%=trip.name%></a></div>
+<h1 class="dashboard-header">Dashboard</h1>
+
+<div class="text-center my-trips">
+  <h3 class="text-center">My Trips</h3>
+
+  <% @trips.each do |trip| %>
+    <% if trip.user_id == session[:id] %>
+      <div class="dashboard-trip text-center"><a href="/trip/<%=trip.id%>"><%=trip.name%></a></div>
+    <% end %>
   <% end %>
-<% end %>
 
-<%= form_tag '/new_trip', method: 'get' do %>
-  <button>Create Trip</button>
-<% end %>
+  <%= form_tag '/new_trip', method: 'get' do %>
+    <button class="btn btn-success">Create Trip</button>
+  <% end %>
 
-<hr>
+</div>
+<!--
+<hr> -->
 
-<h3>My Cards</h3>
-
-<div class="cards_container">
+<div class="text-center my-cards">
+  <h3>My Cards</h3>
+  <div class="cards_container container-fluid">
+  </div>
 </div>
 
 <%= render 'dashboard_card_template' %>
@@ -25,8 +29,6 @@
 $(document).ready(function() {
 
   var user_id =  <%= @user_id.to_json %>;
-
-  console.log(user_id);
 
   $.ajax({
     url: '/api/cards/',
@@ -37,28 +39,20 @@ $(document).ready(function() {
 
     for(var i=0; i<data.length; i++){
       if (data[i].user_id === user_id){
-        console.log('test');
         cards.push(new Card(data[i]));
       };
     };
 
-    //????
 
     cards.forEach(function(card){
       var view = new DashboardCardItemView({model: card});
       $('.cards_container').append(view.render().el);
     });
 
-
-
   });
 
 });
 </script>
-
-<%= form_tag '/new_card_form', method: 'get' do %>
-  <button>create new card</button>
-<% end %>
-
-<hr>
-<a href="/mood_board">Mood Board</a>
+<div class="mood-board text-center">
+  <a href="/mood_board">Mood Board<p>checkout your future plans</p></a>
+</div>

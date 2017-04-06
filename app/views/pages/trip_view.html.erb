@@ -1,21 +1,30 @@
-<button id="create_new_card">CREATE NEW CARD</button>
-<div id="new_card_container"></div>
-<!-- /new_card_form/<%= @trip_id %> -->
-<input type="hidden" value=" <%= @trip_id %> " id="trip_id">
+<div class="">
+  <h1><%= @trip.name %></h1>
+</div>
 <div id="mapPin"></div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 center-stuff">
+      <button class="btn btn-success" id="create_new_card">CREATE NEW CARD</button>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
+<div id="new_card_container" class="center-stuff"></div>
 
-<div class="cards_container">
+<input type="hidden" value=" <%= @trip.id %> " id="trip_id">
+
+
+<div class="cards_container  container-fluid">
+
+
 </div>
 
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDos2y09tthYvRB3zKJ53njpqZkSFtX8u4&callback=initPinMap">
 </script>
-
-
-
-
-
 
 <%= render 'dashboard_card_template' %>
 
