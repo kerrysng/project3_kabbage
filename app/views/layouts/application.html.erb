@@ -9,40 +9,40 @@
   </head>
 
   <body>
-
-    <ul class="topnav">
+    <nav class="topnav">
+        <div class="logo">
+          <h1>Tripr</h1>
+        </div>
         <% if user_signed_in? %>
-           <a href="/dashboard">Dashboard</a>
-           <%=form_tag '/', method: 'delete' do %>
-           <a href="/">Homepage</a>
-           <% end %>
-          <% else %>
-
-          <li class ="dropdown"><a href="/">Login</a>
-            <ul class="dropdown-menu" >
-              <%= form_tag '/', method: 'post' do %>
-                <label for="">email</label>
-                  <input type="text" name="email">
-                    <label for="">password</label>
-                      <input type="password" name="password">
-                        <button>login</button>
-                         <% end %>
+          <div class="left-side">
+            <ul>
+              <li><a href="/">Homepage</a></li>
+              <li><a href="/dashboard">Dashboard</a></li>
             </ul>
-                     <li><a href="/user">Sign Up</a>
-                   <%= form_tag '/user', method: 'get' do %>
-                <% end %>
-              </li>
-
-        <%end%>
-
-    </ul>
-
-    <% if session[:first_name] != nil %>
-      <p>Logged in: <%= session[:first_name] %><%=session[:id]%></p>
-      <%= form_tag '/', method: 'delete' do %>
-      <button>logout</button>
-      <% end %>
-    <% end %>
+          </div>
+          <div class="right-side">
+            <p>Logged in as: <%= session[:first_name] %></p>
+            <%= form_tag '/', method: 'delete' do %>
+              <button>Logout</button>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="right-side">
+            <div class="login-form">
+              <%= form_tag '/', method: 'post' do %>
+                <label for=""><i class="fa fa-envelope-o" aria-hidden="true"></i></label>
+                <input type="text" name="email" placeholder="Your_Email@mail.com">
+                <label for=""><i class="fa fa-key" aria-hidden="true"></i></label>
+                <input type="password" name="password" placeholder="Password">
+                <button>login</button>
+              <% end %>
+            </div>
+            <div class="sign-up">
+              <a href="/user">Sign Up</a>
+            </div>
+          </div>
+        <% end %>
+    </nav>
     <%= yield %>
   </body>
 </html>
