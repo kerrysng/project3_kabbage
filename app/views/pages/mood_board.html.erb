@@ -5,10 +5,8 @@
 <input type="hidden" value=" <%= @user_id %> " id="user_id">
 <div id="mapPin"></div>
 
-
 <div class="cards_container">
 </div>
-
 
 <script id="new_card_form"type="BOOGY WOO DO">
 <div id="map"></div>
@@ -25,51 +23,32 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDos2y09tthYvRB3zKJ53njpqZkSFtX8u4&callback=initMoodPinMap">
 </script>
 
-
-
-
-
-
-<%= render 'card_template' %>
+<%= render 'dashboard_card_template' %>
 
 <script>
 $(document).ready(function() {
 
-$trip_id = parseInt($('input#trip_id').val());
+  var user_id = <%=session[:id] %>;
 
-  //debugger;
+  console.log(user_id);
+  var $id = $('#user_id').val();
   $.ajax({
-    method: 'GET',
-    url: '/api/cards/'
-   }).done(function(result){
+    url: '/api/moods/'+$id,
+    method: 'GET'
+  }).done(function(data){
 
-    cards = [];
+    var cards = [];
 
-    i=0;
-    while(result[i] != undefined){
-      if(result[i].trip_id === $trip_id){
-        cards.push(new Card(result[i]));
-      }
-      i++;
-    }
-
-    // for(i=0; i< cards.length; i++){
-    //   if(result[i] != undefined){
-    //     cards.push(new Card(selection[i]));
-    //   }
-    // }
+    for(var i=0; i<data.length; i++){
+        cards.push(new Card(data[i]));
+    };
 
     cards.forEach(function(card){
-  //    debugger;
-      if (card.attributes.id != undefined){
-        var view = new CardItemView({model: card});
-        $('.cards_container').append(view.render().el);
-      }
+      var view = new DashboardCardItemView({model: card});
+      $('.cards_container').append(view.render().el);
     });
 
-
-   });
-
-
+  });
 });
+
 </script>
