@@ -9,16 +9,7 @@
 </div>
 
 
-<script id="new_card_form"type="BOOGY WOO DO">
-<div id="map"></div>
-  <form class="new-card-form" action="">
-    <label class="new-" for="">Card Name</label>
-    <input type="text" name="name" value="" class="new-card-name">
-    <label for="">Image Url</label>
-    <input type="text" name="image_url" value="" class="new-card-image">
-    <button class="new_card_action">SUBMIT</button>
-  </form>
-</script>
+
 
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDos2y09tthYvRB3zKJ53njpqZkSFtX8u4&callback=initPinMap">
@@ -29,7 +20,7 @@
 
 
 
-<%= render 'card_template' %>
+<%= render 'dashboard_card_template' %>
 
 <script>
 $(document).ready(function() {
@@ -61,7 +52,7 @@ $trip_id = parseInt($('input#trip_id').val());
     cards.forEach(function(card){
   //    debugger;
       if (card.attributes.id != undefined){
-        var view = new CardItemView({model: card});
+        var view = new DashboardCardItemView({model: card});
         $('.cards_container').append(view.render().el);
       }
     });
