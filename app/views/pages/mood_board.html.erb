@@ -23,14 +23,13 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDos2y09tthYvRB3zKJ53njpqZkSFtX8u4&callback=initMoodPinMap">
 </script>
 
-<%= render 'dashboard_card_template' %>
+<%= render 'moodboard_card_template' %>
 
 <script>
 $(document).ready(function() {
 
   var user_id = <%=session[:id] %>;
 
-  console.log(user_id);
   var $id = $('#user_id').val();
   $.ajax({
     url: '/api/moods/'+$id,
@@ -44,7 +43,7 @@ $(document).ready(function() {
     };
 
     cards.forEach(function(card){
-      var view = new DashboardCardItemView({model: card});
+      var view = new MoodboardCardItemView({model: card});
       $('.cards_container').append(view.render().el);
     });
 
