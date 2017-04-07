@@ -1,17 +1,14 @@
-<div class="cards_container">
+
 <section class="fine-pic">
   <div class="fine-back center-stuff">
     <%=image_tag "TRipr.png", class:"logo" %>
     <h4>Record your travels, or find your next adventure</h4>
-     <!-- form_tag '/', method: 'get' do -->
     <input type="text" class="search form-control" placeholder="Enter in your next destination">
     <button class="btn btn-success search-btn">Search</button>
-     <!-- end -->
   </div>
 </section>
 
-<div class="cards_container  container-fluid center-stuff">
-</div>
+<div class="cards_container  container-fluid center-stuff"></div>
 
 <%= render 'card_template' %>
 
@@ -32,8 +29,6 @@ $(document).ready(function() {
     selection = [];
     cards = [];
 
-
-
     if ($searchTerm != ''){
       i=0;
       while(result[i] != undefined){
@@ -48,17 +43,20 @@ $(document).ready(function() {
       selection = result;
     }
 
+
     for(i=$offset; i< $limit; i++){
       if(result[i] != undefined){
         cards.push(new Card(selection[i]));
       }
     }
 
+
+
     cards.forEach(function(card){
-  //    debugger;
       if (card.attributes.id != undefined){
         var view = new CardItemView({model: card});
         $('.cards_container').append(view.render().el);
+        //debugger;
       }
     });
 
@@ -81,6 +79,7 @@ $(document).ready(function() {
     $limit = 10;
     $(".cards_container").empty();
 
+  //  debugger;
     makeAJAXCall();
 
   });
