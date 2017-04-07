@@ -16,32 +16,30 @@
     <div class="navbar-nav">
       <div class="container">
         <a class="navbar-brand" href="#">
-         <%= image_tag "TRipr.png" %>
+         <!-- <%= image_tag "TRipr.png" %> -->
         </a>
           <% if user_signed_in? %>
-          <ul= "nav nav-tabs">
-            <a class="nav-item nav-link" href="/">Homepage</a></li>
-            <a class="nav-item nav-link" href="/dashboard">Dashboard</a></li>
-            <a class="nav-item nav-link" href ="/user/edit">Edit Profile</a></li>
+          <ul class = "nav nav-tabs">
+            <li><a class="nav-item nav-link" href="/">Homepage</a></li>
+            <li><a class="nav-item nav-link" href="/dashboard">Dashboard</a></li>
+            <li><a class="nav-item nav-link" href ="/user/edit">Edit Profile</a></li>
 
             <p>Logged in as: <%= session[:first_name] %></p>
             <%= form_tag '/', method: 'delete' do %>
-            <button>Logout</button>
+            <button class="btn btn-info">Logout</button>
             <% end %>
 
-          <% else %>
+            <% else %>
             <%= form_tag '/', method: 'post', class: "form-inline" do %>
               <label for=""><i class="fa fa-envelope-o" aria-hidden="true"></i></label>
               <input type="text" class="form-control" name="email" placeholder="Your_Email@mail.com">
-
               <label for=""><i class="fa fa-key" aria-hidden="true"></i></label>
-
               <input type="password" class="form-control mr-2" name="password" placeholder="Password">
 
-              <button class="btn-btn-info">login</button>
+              <button class="btn btn-info">login</button>
               <% end %>
 
-                <a class="nav-item nav-link" href="/user">Sign Up</a>
+              <a class="nav-item nav-link" href="/user">Sign Up</a>
           <% end %>
         </ul>
     </div> <!--container -->
