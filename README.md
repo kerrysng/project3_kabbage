@@ -20,11 +20,18 @@ We decided on a microblogging travel app as the group had a clearer view of the 
 
 We first created wireframes and relational tables/databases.
 
-#### Wireframes
+#### Wireframes and Table Relation
 
- ![Wireframes](/Users/Barry/wdi11/projects/Project3/project3_kabbage/app/assets/images/wireframe.JPG)
+ ![Wireframes](https://github.com/GerardWorks/project3_kabbage/blob/master/app/assets/images/wireframe.JPG)
 
- ![Tables](/Users/Barry/wdi11/projects/Project3/project3_kabbage/app/assets/images/tables.JPG)
+ ![Wireframe Main Page](https://github.com/GerardWorks/project3_kabbage/blob/master/app/assets/images/Mainpage.png)
+
+ ![Wireframes Dashboard AND Trip View](https://github.com/GerardWorks/project3_kabbage/blob/master/app/assets/images/dashboard and trip view.png)
+
+ ![Tables](https://github.com/GerardWorks/project3_kabbage/blob/master/app/assets/images/tables.JPG)
+
+ ![Tables relation]( https://github.com/GerardWorks/project3_kabbage/blob/master/app/assets/images/tables relation.png)
+
 
 
 ### FUNCTIONALITY
@@ -32,11 +39,11 @@ Tripr - Your new photo share experience. <br>
 <br>
 Users are able to view other users cards or SEARCH for either a country or city.  Once logged in - users are able to pin other users cards to their Moodboard. Moodboard is an inspirational/idea board for the user's future travel. <br>
 <br>
-Users are able to create trips, in which they specify the start and end date of each trip. In each of the trip, the user creates cards to upload pictures and their blogs. The current location of where the photo is uploaded gets pinned on the map. <br>
+Users are able to create trips, in which they specify the start and end date of each trip. In each of the trip, the user creates cards to upload pictures and their blogs. The current location of where the photo is uploaded gets saved and pinned on the map. <br>
 <br>
 Users are able their own profile. Update email address / first name / last name / password. <br>
 <br>
-Dashboard / Trip / Moodboard View - Users are able to click and expand each of the pictures to provide details. <br>
+Dashboard / Trip / Moodboard View - Users are able to click and expand each of the pictures to provide more details. <br>
 <br>
 Users are able to edit and update their own cards(blogs).
 <br>
@@ -44,6 +51,7 @@ Users are able to edit and update their own cards(blogs).
 ### DIARY LOG
 
 ###### 03/04/17
+
 * Brainstorm
     * Brainstorm potential topics
         * Travel and Fishing Spots
@@ -75,7 +83,6 @@ Users are able to edit and update their own cards(blogs).
     * Create Trip button working / links to trip new form.
     * User TRIPS now showing
 
-
 ###### 06/04/17
 
 * Add to mood board functionality now working. User clicks and saves to mood table.
@@ -85,9 +92,8 @@ Users are able to edit and update their own cards(blogs).
 ###### 07/04/17
 
 * update readme.md
-* bug fixes
-*
-
+* CSS bug fixes
+* group presentation
 
 
 ### UNRESOLVED ISSUES
@@ -98,5 +104,8 @@ Users are able to edit and update their own cards(blogs).
 
 ### LESSON LEARNT
 
+### USER STORIES
 
-### GOING TO TRAVEL? USE Tripper --->['Tripr'](https://glacial-bayou-90913.herokuapp.com/)
+ ![Tables](https://github.com/GerardWorks/project3_kabbage/blob/master/app/assets/images/user_stories.png)
+
+##### GOING TO TRAVEL? Experience Tripper --->['Tripr'](https://glacial-bayou-90913.herokuapp.com/)
