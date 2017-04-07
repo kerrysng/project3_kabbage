@@ -18,7 +18,12 @@
 }
 
 .card:hover {
-  /*border-color: blue;*/
+  background-color: lightgrey;
+}
+
+.card:hover img {
+  -webkit-filter: grayscale(100%); /* Safari */
+  filter: grayscale(100%);
 }
 
 .text {
@@ -61,3 +66,9 @@ footer {
 /*.left {
   float: left;
 }*/
+
+
+.logo {
+  width: 110px;
+  margin: 10px;
+}
