@@ -7,7 +7,7 @@
   vertical-align: top;
   background-color: white;
   padding: 15px;
-  float: left;
+  /*float: left;*/
   /*display: flex;*/
   /*box-shadow: 2px 2px 2px #888888;*/
 }
@@ -43,7 +43,7 @@ footer {
 }
 
 .full_view {
-  /*position: absolute;*/
+  position: absolute;
 }
 
 .card button {
@@ -78,6 +78,11 @@ footer {
 .my-trips {
  text-align: center;
  background-color: lightgrey;
+ padding: 10px 0;
+}
+
+.my-trips a:link{
+
 }
 
 .my-trips form {
