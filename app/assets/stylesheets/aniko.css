@@ -46,3 +46,18 @@ footer {
 /*.full_view img {
   height: 320px;
 }*/
+
+
+.location {
+  font-weight: bold;
+  font-size: 1.2em;
+  display: inline-block;
+}
+
+.right {
+  float: right;
+}
+
+/*.left {
+  float: left;
+}*/

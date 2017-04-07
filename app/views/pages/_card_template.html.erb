@@ -15,13 +15,12 @@
   <div class="map">
   </div>
   <footer>
-    <h5>{{country}}</h5>
-    <h5>{{city}}</h5>
+    <h5 class="dashboard location">{{city}} {{country}}</h5>
 
     <form action="/api/moods/" method="post">
       <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
       <input type="hidden" name="card_id" value="{{id}}" id="cardID">
-      <button class="mood-btn">Add to mood board</button>
+      <button class="mood-btn btn-success">Save</button>
     </form>
 
 </footer>
