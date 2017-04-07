@@ -35,8 +35,9 @@
           <% end %>
         </ul>
           <% if user_signed_in? == false %>
+            <a class="navbar-right btn btn-info custom-btn" href="/user">Sign Up</a>
             <%= form_tag '/', method: 'post', class: "navbar-form navbar-right" do %>
-              <label for=""><%= fa_icon "envelope-o"%></i></label>
+              <label for=""><%= fa_icon "envelope-o"%></label>
               <input type="text" class="form-control" name="email" placeholder="Your_Email@mail.com">
               <label for=""><%= fa_icon "key"%></label>
               <input type="password" class="form-control mr-2" name="password" placeholder="Password">
