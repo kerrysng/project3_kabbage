@@ -9,17 +9,18 @@
     <p class="dashboard">{{body}}</p>
   </div>
   <footer class="dashboard" style="">
-    <h5 class="dashboard">{{country}}</h5>
-    <h5 class="dashboard">{{city}}</h5>
-    <button class="edit notedit btn btn-primary">Edit</button>
+    <h5 class="dashboard location">{{city}} {{country}}</h5>
+    <button class="edit notedit btn btn-success right">Edit</button>
 
     <form action="/api/cards/{{id}}" method="post" class="isedit">
     <input type="hidden" name="_method" value="put" />
     <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
     <input type="hidden" name="card_id" value="{{id}}" id="cardID">
-    <input type="text" name="image_url" value="{{image_url}}">
-    <input type="textarea" name="body" value="{{body}}">
-    <button class="btn btn-primary">Save</button>
+    <label for="">Image url</label>
+    <input type="text" class="form-control" name="image_url" value="{{image_url}}">
+    <label for="">Description</label>
+    <textarea class="form-control" name="body" rows="20" cols="4" value="">{{body}}</textarea>
+    <button class="btn btn-success right">Save</button>
     </form>
 
   </footer>

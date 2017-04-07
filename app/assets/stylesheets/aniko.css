@@ -18,7 +18,12 @@
 }
 
 .card:hover {
-  /*border-color: blue;*/
+  background-color: lightgrey;
+}
+
+.card:hover img {
+  -webkit-filter: grayscale(100%); /* Safari */
+  filter: grayscale(100%);
 }
 
 .text {
@@ -46,3 +51,24 @@ footer {
 /*.full_view img {
   height: 320px;
 }*/
+
+
+.location {
+  font-weight: bold;
+  font-size: 1.2em;
+  display: inline-block;
+}
+
+.right {
+  float: right;
+}
+
+/*.left {
+  float: left;
+}*/
+
+
+.logo {
+  width: 110px;
+  margin: 10px;
+}

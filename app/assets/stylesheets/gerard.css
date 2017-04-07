@@ -22,3 +22,9 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+.logo-img{
+  width: 30px;
+}
+.navbar{
+  margin-bottom: 0;
+}

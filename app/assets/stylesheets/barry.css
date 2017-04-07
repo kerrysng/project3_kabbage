@@ -4,10 +4,6 @@
 .mood-board {
   padding-bottom: 10px;
   border-bottom: #d1d1d1 solid 0.1px;
-}
-
-.mood-board {
-  padding-top: 10px;
   padding-bottom: 20px;
 }
 
@@ -17,12 +13,23 @@
 
 .mood-board a:hover p {
   display:block;
+  font-style: italic;
 }
 
-.btn {
+.create-trip-btn {
   margin: 5px;
 }
 
 .dashboard-trip:hover {
   font-size: 2em;
+}
+
+footer {
+  position: bottom;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
 }

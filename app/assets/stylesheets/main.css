@@ -18,11 +18,11 @@ html, body {
 }
 
 
-
+/*
 
 .topnav {
   background-color: rgb(226, 220, 199);
-  width: 90%
+  width: 100%
 }
 .topnav li{
   list-style: none;
@@ -56,4 +56,4 @@ html, body {
 .card_image:hover {
   height: 50%;
   width: 50%;
-}
+}*/
