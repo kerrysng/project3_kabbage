@@ -2,16 +2,22 @@
 
 <h3 class="text-center">My Trips</h3>
 <div class="text-center my-trips">
-  
+
   <% @trips.each do |trip| %>
     <% if trip.user_id == session[:id] %>
-      <div class="dashboard-trip text-center"><a href="/trip/<%=trip.id%>"><%=trip.name%></a></div>
+      <div class="dashboard-trip text-center"><h4><a href="/trip/<%=trip.id%>"><%=trip.name%></a></h4></div>
     <% end %>
   <% end %>
 
-  <%= form_tag '/new_trip', method: 'get' do %>
-    <button class="dashboard-trip create-trip-btn btn btn-success">Create Trip</button>
+  <div class="text-center dashboard-trip">
+    <a href="/mood_board" class="btn btn-info">Future Trips</a>
+  </div>
+
+  <div class="dashboard-trip text-center">
+    <%= form_tag '/new_trip', method: 'get' do %>
+      <button class="btn btn-success">Create Trip</button>
   <% end %>
+  </div>
 
 </div>
 
@@ -51,6 +57,3 @@ $(document).ready(function() {
 
 });
 </script>
-<div class="mood-board text-center">
-  <a href="/mood_board">Mood Board<p>checkout your future plans</p></a>
-</div>
