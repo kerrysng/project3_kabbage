@@ -1,8 +1,8 @@
 <h1 class="dashboard-header">Dashboard</h1>
 
+<h3 class="text-center">My Trips</h3>
 <div class="text-center my-trips">
-  <h3 class="text-center">My Trips</h3>
-
+  
   <% @trips.each do |trip| %>
     <% if trip.user_id == session[:id] %>
       <div class="dashboard-trip text-center"><a href="/trip/<%=trip.id%>"><%=trip.name%></a></div>
@@ -10,7 +10,7 @@
   <% end %>
 
   <%= form_tag '/new_trip', method: 'get' do %>
-    <button class="create-trip-btn btn btn-success">Create Trip</button>
+    <button class="dashboard-trip create-trip-btn btn btn-success">Create Trip</button>
   <% end %>
 
 </div>
