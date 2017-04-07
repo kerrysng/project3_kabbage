@@ -26,12 +26,11 @@ We first created wireframes and relational tables/databases.
 
  ![Wireframe Main Page](https://github.com/GerardWorks/project3_kabbage/blob/master/app/assets/images/Mainpage.png)
 
- ![Wireframes Dashboard AND Trip View](https://github.com/GerardWorks/project3_kabbage/blob/master/app/assets/images/dashboard and trip view.png)
+ ![Wireframes Dashboard AND Trip View](https://github.com/GerardWorks/project3_kabbage/blob/master/app/assets/images/dashboard_and_trip_view.png)
 
  ![Tables](https://github.com/GerardWorks/project3_kabbage/blob/master/app/assets/images/tables.JPG)
 
- ![Tables relation]( https://github.com/GerardWorks/project3_kabbage/blob/master/app/assets/images/tables relation.png)
-
+ ![Tables relation]( https://github.com/GerardWorks/project3_kabbage/blob/master/app/assets/images/tables_relation.png)
 
 
 ### FUNCTIONALITY
@@ -92,15 +91,15 @@ Users are able to edit and update their own cards(blogs).
 ###### 07/04/17
 
 * update readme.md
-* CSS bug fixes
+* CSS bug fixes - search button
 * group presentation
 
 
 ### UNRESOLVED ISSUES
 * prevent users from adding a card to their moodboard once they have already pinned it.
-*
 
 ### FUTURE PLANS
+* User comments
 
 ### LESSON LEARNT
 
