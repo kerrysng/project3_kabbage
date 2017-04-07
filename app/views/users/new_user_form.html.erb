@@ -3,25 +3,18 @@
   <h1>Sign Up</h1>
   <legend>Please fill in your details</legend>
   <fieldset class= "form-group">
-
       <%= form_tag '/user/new', method: 'post' do %>
-      <div class="form-group">
         <label class= "form-control-label" for="">email</label>
         <input class= "form-control" name="email" type="email" placeholder="name@domain.com">
       </div>
       <div class="form-group has-danger">
         <label class= "form-control-label" for="">password</label>
         <input class= "form-control form-control-danger" type="password" name="password">
-      </div>
-      <div class="form-group">
         <label class= "form-control-label" for="">First Name</label>
         <input class= "form-control" type="text" name="first_name">
-      </div>
-      <div class="form-group">
         <label class= "form-control-label" for="">Last Name</label>
         <input class= "form-control" type="text" name="last_name">
-      </div>
-        <button class="btn btn-primary" type="submit">Create</button>
+        <button class="btn btn-primary">Create</button>
       <% end %>
   </fieldset>
 </div>

@@ -1,5 +1,11 @@
 # Team Kabbage - PROJECT 3 - Tripr
 
+###### Created by Aniko Hazi, Gerard Ho, Kerry Sng and Barry Tabios
+
+##### GOING TO TRAVEL? Experience Tripper link here --->['Tripr'](https://glacial-bayou-90913.herokuapp.com/)
+
+![Main Page]( https://github.com/GerardWorks/project3_kabbage/blob/master/app/assets/images/main_page.png)
+
 ### TECHNOLOGIES
 
 The following frameworks/languages/library/App were used in this:
@@ -90,21 +96,20 @@ Users are able to edit and update their own cards(blogs).
 
 ###### 07/04/17
 
-* update readme.md
-* CSS bug fixes - search button
-* group presentation
-
+* Update readme.md
+* CSS bug fixes - search button / web flow
+* Group presentation
 
 ### UNRESOLVED ISSUES
-* prevent users from adding a card to their moodboard once they have already pinned it.
+* Prevent users from adding a card to their moodboard once they have already pinned it.
+* Remove cards from user's Moodboard
 
 ### FUTURE PLANS
 * User comments
-
-### LESSON LEARNT
+* Fix up on unresolved issues
+* Have a database that is able to images
+* User able to upload pics instead of saving URL links
 
 ### USER STORIES
 
  ![Tables](https://github.com/GerardWorks/project3_kabbage/blob/master/app/assets/images/user_stories.png)
-
-##### GOING TO TRAVEL? Experience Tripper --->['Tripr'](https://glacial-bayou-90913.herokuapp.com/)
