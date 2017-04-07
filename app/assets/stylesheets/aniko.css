@@ -79,10 +79,11 @@ footer {
  text-align: center;
  background-color: lightgrey;
  padding: 10px 0;
+ margin: 20px 0;
 }
 
-.my-trips a:link{
-
+.my-trips a:hover{
+text-decoration: none;
 }
 
 .my-trips form {
@@ -96,3 +97,8 @@ footer {
   vertical-align: middle;
   margin: 10px 30px;
 }
+
+
+/*.padding-fix {
+  margin-bottom: 10px;
+}*/
