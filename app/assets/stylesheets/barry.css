@@ -13,9 +13,10 @@
 
 .mood-board a:hover p {
   display:block;
+  font-style: italic;
 }
 
-.btn {
+.create-trip-btn {
   margin: 5px;
 }
 
